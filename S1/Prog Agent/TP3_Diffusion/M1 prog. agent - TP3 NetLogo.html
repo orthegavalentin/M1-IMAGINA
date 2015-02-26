@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0046)http://www.lirmm.fr/~ferber/ProgAgent/TP3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>M1 prog. agent - TP3 NetLogo</title>
+<link href="./M1 prog. agent - TP3 NetLogo_files/netlogo.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style></head>
+<body bgcolor="white">
+
+<center>
+  <h1>TP 3 - Programmation orientée agent  <br>
+    <br>
+  Diffusion de signaux</h1>
+<p>&nbsp; </p>
+  <h3>proposé par <a href="mailto:ferber@lirmm.fr">Jacques Ferber</a> - dernières modifs - Oct 2014</h3>
+  <p>&nbsp;</p>
+</center>
+<p>&nbsp;</p>
+<h2>1. La chasse aux lapins, ou comment il est difficile de suivre une trace
+  d'odeur.. </h2>
+<p>On reprend le modèle des poursuites réalisé dans le
+  cadre du <a href="http://www.lirmm.fr/~ferber/ProgAgent/TP1.html">TP1</a> (les abeilles et les reines), que l'on appellera ici les lapins
+  et les loups. On suppose que les lapins (initialement les reines) avancent
+  en laissant une trace d'odeur dans l'environnement.</p>
+<p>a) Ecrire le comportement de lapins qui laissent des traces d'odeur dans l'environnement
+  en faisant attention de bien visualiser les traces des odeurs des lapins. On
+  s'inspirera du <a href="http://www.lirmm.fr/~ferber/ProgAgent/suivi_potentiel.nlogo">modèle
+  de diffusion</a>  vu en cours. Chaque patch aura un attribut <tt>odeur</tt>. Quelques
+  valeurs de paramètres: </p>
+<ul>
+  <li>valeur
+    de l'odeur déposé (<tt>max-odeur</tt>) par un lapin: 50 environ. </li>
+  <li>Vitesse du lapin:
+    1 (si on va trop vite, les odeurs ne suivent pas...)  </li>
+  <li><tt>taux-diffusion</tt>: prévoir un slide avec une valeur de 1 à 100  </li>
+</ul>
+<p>En ce qui concerne la diffusion, on diffusera le paramètre 'odeur'
+  des patches à chaque tick. D'autre part, on coloriera l'environnement
+  avec la procédure suivante:</p>
+<pre>       ask patches [set pcolor scale-color yellow odeur 1 (max-odeur / 1.3) ] </pre>
+<p><strong>Attention</strong>: Nous avons constaté que vous aviez beaucoup de difficulté pour
+  bien placer les bons éléments au bon endroit. Dans cet exemple,
+  le placement des odeurs est fait par les lapins, donc cela doit se trouver dans
+  une procédure associée aux lapins. La diffusion des patches est
+  globale sur l'ensemble du monde et se trouve définie pour les 'observers'.
+  La coloration des patches est assurée par les patches eux-mêmes. En
+  d'autres termes, lorsqu'un lapin dépose une odeur, il ne met pas à jour
+  la couleur des patches. La couleur des patches est mise à jour directement
+  dans la procédure <tt>go</tt> ou bien dans une procédure appelée
+  par <tt>go</tt>       </p>
+<p>b) Ecrire le comportement des loups, en considérant qu'ils ont une
+  vitesse de 0.8 à chaque tour. Les loups suivent le gradient des odeurs
+  laissés
+  par les lapins.</p>
+<ol>
+  <li>Ecrire le comportement à l'aide de la primitive <tt>uphill</tt> et regardez
+    les conséquences..</li>
+  <li>Essayer d'écrire un autre comportement, plus fluide, en reprenant
+    la définition de <tt>uphill</tt> (voir la <a href="http://ccl.northwestern.edu/netlogo/docs/">doc
+    de NetLogo</a>), mais sans faire
+    intervenir la primitive <tt>move-to</tt> (on reste avec la simple primitive <tt>fd</tt> pour
+    avancer). </li>
+</ol>
+<p>Essayez de comprendre le problème des loups qui sont souvent bloqués
+  dans leur avancement..   </p>
+<p>c) Vous constatez que la diffusion réparti les odeurs, mais ne les
+  supprime pas.. Au bout d'un certain temps, tout l'environnement devient rempli
+  d'odeurs, et les loups n'arrivent plus à s'y retrouver. Ecrire un modèle
+  d'évaporation
+  des odeurs..      Il suffit que les patches aient leur attribut d'odeur modifié à chaque
+  tour, juste avant la visualisation:</p>
+<blockquote>
+  <blockquote>
+    <p><tt>odeur = odeur - taux-evaporation</tt> où <tt>taux-evaporation</tt> varie
+      de 0% à 5%
+      environ (utiliser un slider). </p>
+  </blockquote>
+</blockquote>
+<h2>2. Regroupement des lapins et fuite devant les prédateurs </h2>
+<p>On suppose maintenant qu'il y a des lapins femelles et des lapins mâles..
+  Chaque espèce produit une odeur différente.. Modifiez votre programme
+  pour prendre en compte cette différence sexuelle.</p>
+<p>On suppose maintenant que les mâles sont attirés par les femelles
+  et que les femelles sont attirées par les mâles. Développez
+  ainsi un phénomène de regroupement. On fera toutefois attention
+  que les lapins se repoussent s'il sont inférieur à une certaine
+  distance (distance très faible de 2 à 10  max), afin de créer
+  des "troupeaux" de lapins (phénomène très rare
+  dans la nature!! :-)</p>
+<p>On suppose que les loups sont attirés aussi bien par les mâles
+que par les femelles. </p>
+<p>Mais les lapins fuient devant le loup. Dès qu'ils détectent
+  le loup à une certaine distance de détection, ils fuient et ne
+  déposent plus d'odeur..</p>
+<p>Implémenter ce comportement de regroupement d'abord et de fuite ensuite.. </p>
+<p>On peut constater que le comportement des lapins suit une FSM à deux états:
+  soit ils cherchent à aller vers des lapins de l'autre sexe, soit ils
+fuient devant les loups.. </p>
+
+
+
+
+
+
+</body></html>

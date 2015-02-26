@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+
+	<style type="text/css">
+	body {
+		background-color: #ccc;
+	}
+	#contenu {
+		width: 1000px;
+		background-color: white;
+		margin-left: auto;
+		margin-right: auto;
+		border: solid 1px #aaa;
+	}
+	form {
+		padding: 30px;
+	}
+	</style>
+</head>
+<body>
+	<div id="contenu">
+		<h1 style="margin-left:15px">Poser une question</h1>
+		<form>
+			<div>Nom : <input type="text" name="nomUser" placeholder="Dupont">
+				Prénom : <input type="text" name="prenomUser"  placeholder="Jean-Hubert">
+			</div>
+			<div>Pseudo : <input type="text" name="pseudoUser"></div>
+			<div>e-mail : <input type="email" name="mailUser"></div>
+			<div>Site web : <input type="url" name="websiteUser"></div>
+
+			<h3>Soignez l'expression de votre question</h3>
+			<div>blablablabalablal blahaablahahaalbla <br /> blablablabalablalaalb</div>
+			<br>
+
+			<div>Question
+				<textarea rows="4" cols="50" name="question"></textarea>
+			</div>
+
+			<div>
+				Durée de validité
+				<input type="radio" name="dureeValidite" value="indeterminee">indéterminée
+				<input type="radio" name="dureeValidite" value="unJour">un jour
+				<input type="radio" name="dureeValidite" value="uneSemaine">une semaine
+				<input type="radio" name="dureeValidite" value="unMois">un mois
+				<input type="radio" name="dureeValidite" value="unAn">un an
+			</div>
+
+			<input type="submit" value="Soumettre" >
+		</form>
+	</div>
+</body>
+</html>

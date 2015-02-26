@@ -1,0 +1,189 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1490" measuredH="1506" mockupW="1280" mockupH="1480">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="210" y="26" w="1280" h="1480" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <color>15528177</color>
+        <text>EXSPORTS%0Ahttp%3A//www.exsports.com</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::IconLabel" x="231" y="117" w="-1" h="-1" measuredW="69" measuredH="63" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <labelPosition>bottom</labelPosition>
+        <state>up</state>
+        <text>EXSPORTS</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::ButtonBar" x="330" y="129" w="-1" h="-1" measuredW="831" measuredH="38" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <selectedIndex>-1</selectedIndex>
+        <size>24</size>
+        <text>Men%2C%20Women%2C%20Kids%2C%20Skate%2C%20Snowboard%2C%20Surf%2C%20Collections%2C%20Christmas</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::SearchBox" x="1281" y="136" w="123" h="-1" measuredW="120" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Search</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::CoverFlow" x="578" y="209" w="493" h="198" measuredW="493" measuredH="198" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/freerider-498473_640.jpg</src>
+        <value>50</value>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::VCurly" x="1209" y="231" w="-1" h="-1" measuredW="180" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Cover%20flow%20with%20main%20collections</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Image" x="315" y="443" w="275" h="182" measuredW="640" measuredH="423" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/skateboard-497706_640.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Image" x="703" y="443" w="242" h="182" measuredW="640" measuredH="480" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/downhill-55357_640.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Image" x="1071" y="443" w="274" h="182" measuredW="640" measuredH="426" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/biker-384924_640.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::MediaControls" x="1153" y="582" w="-1" h="-1" measuredW="110" measuredH="36" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::StickyNote" x="907" y="481" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Some%20pictures%20or%20videos%20about%20extreme%20sports</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::TextArea" x="620" y="694" w="220" h="220" measuredW="200" measuredH="140" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>12436423</color>
+        <size>18</size>
+        <state>up</state>
+        <text>Some%20text%20about%20the%20product%20on%20the%20left%0A%20%0AHis%20collection%2C%20category...</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="399" y="694" w="220" h="220" measuredW="77" measuredH="79" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>clothing</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::TextArea" x="1061" y="694" w="220" h="220" measuredW="200" measuredH="140" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>12436423</color>
+        <size>18</size>
+        <state>up</state>
+        <text>Some%20text%20about%20the%20product%20on%20the%20left%0A%20%0AHis%20collection%2C%20category...</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Image" x="840" y="694" w="220" h="220" measuredW="77" measuredH="79" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>clothing</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::TextArea" x="399" y="914" w="220" h="220" measuredW="200" measuredH="140" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>12436423</color>
+        <size>18</size>
+        <state>up</state>
+        <text>Some%20text%20about%20the%20product%20on%20the%20right%0A%20%0AHis%20collection%2C%20category...</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Image" x="619" y="914" w="220" h="220" measuredW="77" measuredH="79" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>clothing</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::TextArea" x="840" y="914" w="220" h="220" measuredW="200" measuredH="140" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>12436423</color>
+        <size>18</size>
+        <state>up</state>
+        <text>Some%20text%20about%20the%20product%20on%20the%20right%0A%20%0AHis%20collection%2C%20category...</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Image" x="1060" y="914" w="220" h="220" measuredW="77" measuredH="79" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>clothing</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="760" y="1228" w="180" h="180" measuredW="640" measuredH="568" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/sunglasses-178151_640.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Image" x="940" y="1228" w="180" h="180" measuredW="533" measuredH="640" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="1120" y="1228" w="180" h="180" measuredW="640" measuredH="426" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/running-shoe-371625_640.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="399" y="1228" w="180" h="180" measuredW="640" measuredH="429" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%E9l%E9chargements/glove-13805_640.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="579" y="1228" w="180" h="180" measuredW="640" measuredH="426" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/sneakers-71623_640.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::SubTitle" x="750" y="1161" w="-1" h="-1" measuredW="201" measuredH="27" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Recommendations</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Canvas" x="213" y="426" w="1257" h="233" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>3447003</color>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Canvas" x="213" y="1213" w="1257" h="233" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>9807270</color>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

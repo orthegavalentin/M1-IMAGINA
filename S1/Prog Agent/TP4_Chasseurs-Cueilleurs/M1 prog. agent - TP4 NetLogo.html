@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0046)http://www.lirmm.fr/~ferber/ProgAgent/TP4.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>M1 prog. agent - TP4 NetLogo</title>
+<link href="./M1 prog. agent - TP4 NetLogo_files/netlogo.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style></head>
+<body bgcolor="white">
+
+<center>
+  <h1 align="center"><font size="5"><a href="http://www.info-ufr.univ-montp2.fr/Formations/LMD/Master/">Master
+        Informatique 1ère année</a>:</font></h1>
+  <h1 align="center"><font size="6">Programmation orientée agents</font> </h1>
+  <h2 align="center"> (FMIN207)</h2>
+  <p align="center"><font size="4"><strong>Resp: <a href="http://www.lirmm.fr/~ferber">Jacques
+        Ferber</a></strong></font><strong>,</strong></p>
+  <h1>TP 4 - Architecture à base d'états finis <br>
+  Les chasseurs-cueilleurs</h1>
+<h3>2009-2013</h3>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tbody><tr>
+      <td><img src="./M1 prog. agent - TP4 NetLogo_files/camp.jpg" width="609" height="260"></td>
+    </tr>
+  </tbody></table>
+</center>
+
+<p>On cherche à mettre en évidence des architectures d'agent permettant
+  de prendre en compte le processus de décision des agents. Pour cela
+  on va essayer de modéliser le comportement de chasseurs-cueilleurs,
+  en simplifiant à l'extrême leur comportement.</p>
+<p>Les chasseurs cueilleurs doivent faire face à un problème important:
+  est il plus intéressant de chasser ou de cueillir? Et si l'on chasse,
+  dans quel coin faut il aller? Et si l'on cueille, quels sont les bons endroits? </p>
+<p>On va aborder cette question de la prise de décision au travers d'une
+  analyse progressive du comportement de ces chasseurs cueilleurs. </p>
+<h2>1. Comportement simple </h2>
+<h3>a) Village et une zone de cueillette </h3>
+<p>On crée un village au centre du monde. Le village, représenté sous
+  la forme d'un carré marron, a
+  une taille d'environ 20 patches de côté.. On crée aussi
+  une zone de cueillette en haut à droite, comme le montre la figure suivante:</p>
+<p align="center"><img src="./M1 prog. agent - TP4 NetLogo_files/hunt-gath-view1.png" width="300" height="284"></p>
+<h3>b) Les animaux</h3>
+<p>On suppose qu'il existe des animaux sauvages qui évoluent
+  aléatoirement
+  dans le monde. On suppose de plus que ces animaux, sont capables de se reproduire
+  avec un taux de reproduction allant de 0.05 à 0.5 à chaque
+  tour (c'est à dire que chaque animal a une probabilité p avec
+  0.05 &lt; p &lt; 1.0 d'engendrer un nouvel animal à chaque tour).</p>
+<p>On suppose de plus que le nombre max d'animaux est fixé à 400.
+  (comme tous les paramètres, cela peut faire l'objet de sliders).  </p>
+<p>Vitesse des animaux : 0.2 </p>
+<p><strong>Note</strong>: vous pouvez ajouter d'autres informations, le fait que les animaux broutent
+  de l'herbe par exemple (en reprenant des modèles des TP précédents),
+  mais ce n'est pas fondamental ici..  </p>
+<h2>2. Les chasseurs-cueilleurs</h2>
+<p>On suppose qu'il existe un ensemble de chasseurs (le nombre
+  des chasseurs est un paramètre global de la simulation, à mettre
+  sous la forme d'un slider donc).</p>
+<p>Ces chasseurs peuvent soit essayer de chasser des animaux sauvages, soit aller
+  cueillir des plantes sauvages. Dans un premier temps on suppose que ce choix
+  est déterminé par
+  une variable <tt>cueilleur?</tt> qui indique si le chasseur a plutôt un comportement
+  de chasseur ou plutôt un comportement de cueilleur.. </p>
+<p>Un chasseur cherche un animal, le rattrape à la chasse, le tue, et
+  revient au village. Quand il revient au village, une certaine énergie
+  devient disponible correspondant à la valeur du paramètre (<tt>energie-chasse</tt>)
+  entre 1 et 100. Cette énergie
+  est globale à la
+  simulation: elle correspond à l'énergie
+  que récupère le village lorsqu'un chasseur rapporte un trophée à la
+  chasse.     </p>
+<p>Un cueilleur va dans le coin des plantes et rapporte une certaine quantité d'énergie
+  (paramètre <tt>energie-cueillette</tt>) entre 1 et 100 aussi, en revenant
+  au village.    </p>
+<p>Le taux de cueilleur peut être défini par un paramètre
+  global qui détermine combien il y a de cueilleurs parmis les chasseurs-cueilleurs. </p>
+<p><strong>Important</strong>: on représentera le comportement d'un chasseur sous la forme
+  d'une machine à état fini (comme on l'a vu dans le cours). De
+  ce fait le comportement de base de la procédure <tt>to go</tt> est le suivant:</p>
+<pre>   to go
+     ask animaux [ sheep-live ]
+     ask chasseurs-cueilleurs [ run task]
+    ;; ...
+
+   end</pre>
+<p>Le comportement d'un chasseur-cueilleur comprend cinq activités principale:
+  décider de ce qu'il va faire, aller chasser, ramener le produit
+  de la chasse au village, aller cueillir des plantes, ramener le produit de
+  la cueillette au village. </p>
+<p><strong>NOTE</strong>: <strong><em>Il est important que vous programmiez en implémentant une architecture à base
+  de machine à état fini.  </em></strong></p>
+<h3>Les paramètres globaux de la simulation:</h3>
+<p>population-initiale, nombre-init-animaux, taux-reproduction-animaux (entre
+  0.5% et 10%), nombre maximaux d'animaux (autour de 400), energie-initiale (du
+  village), energie-de-chasse (environ 60), energie-de-plante (environ 20), taux-cueilleurs
+  (entre 0 et 100), consommation de l'energie globale de chaque chasseur-cueilleur Ã&nbsp; chaque tour (entre 0 et 5, par pas de 0.1 au max).</p>
+<p>La figure suivante montre un "snapshot" d'une telle simulation (attention,
+  les paramètres sont en anglais, car c'est une habitude pour moi de toujours écrire
+  les programmes en anglais). </p>
+<p><img src="./M1 prog. agent - TP4 NetLogo_files/hunt-gath2.gif" width="630" height="527"> </p>
+<h2>3. La prise de décision</h2>
+<p>Pour l'instant la prise de décision de devenir chasseur ou cueilleur
+  est déterminé à la création par le rapport cueilleur/population
+  totale. On suppose d'autre part que les humains consomment de l'énergie à chaque tour, chaque humain consommant une certaine quantitÃ© d'Ã©nergie globale du village.</p>
+<p>Maintenant on va essayer que chaque agent prenne lui-même sa décision
+   de savoir s'il va chasser ou aller cueillir. Ce comportement suit souvent
+  des règles complexes qui prennent en compte non seulement des choix
+  individuels, mais aussi les connaissances du milieu et surtout la culture de
+  la société. Mais dans notre cas, on va juste se baser sur des
+  choix élémentaires.</p>
+<p><strong>Le choix est celui-ci</strong>: si le taux de succès à la chasse  est
+  trop faible, alors la probabilité augmente pour chacun      de choisir
+  le comportement de cueillette. Ce taux de succès peut être déterminé comme
+  la quantité d'énergie ramenée de la chasse par rapport
+  au nombre de chasseurs. </p>
+<p>Si ce taux est faible, alors l'individu aura tendance à choisir
+  le comportement de cueilleur. Au contraire un taux fort correspond à un
+  grand succès dans la chasse et l'individu aura tendance à aller
+  tenter sa chance en tant que chasseur.</p>
+<p>&nbsp;</p>
+
+
+
+
+
+
+</body></html>

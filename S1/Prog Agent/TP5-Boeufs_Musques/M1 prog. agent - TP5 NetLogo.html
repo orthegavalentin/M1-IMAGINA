@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0047)http://www2.lirmm.fr/~ferber/ProgAgent/TP5.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>M1 prog. agent - TP5 NetLogo</title>
+<link href="./M1 prog. agent - TP5 NetLogo_files/netlogo.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style></head>
+<body bgcolor="white">
+
+<center>
+  <h1 align="center"><font size="6">Programmation orientée agents</font></h1>
+  <h2 align="center"> (FMIN207-Université de Montpellier II)</h2>
+  <p align="center"><font size="4"><strong>Resp: <a href="http://www.lirmm.fr/~ferber">Jacques
+    Ferber</a></strong></font><strong>,</strong></p>
+  <h1>TP 5 - Les boeufs musqués<br>
+  Relation à l'environnement + machines à états finis  </h1>
+<h3>2009-2014</h3>
+<p>&nbsp;</p>
+  <table width="200" border="1">
+    <tbody><tr>
+      <td><img src="./M1 prog. agent - TP5 NetLogo_files/800px-Muskus.jpg" width="449" height="320"></td>
+      <td><p><img src="./M1 prog. agent - TP5 NetLogo_files/MuskOxen.jpg" width="528" height="128"></p>
+      <p>Des boeufs musqués font face à leur seul ennemi mortel
+      (mis à part l'homme): le loup.. </p></td>
+    </tr>
+  </tbody></table>
+</center>
+
+<p>On cherche à modéliser le comportement grégaire d'animaux,
+  comme celui des boeufs musqués, qui doivent lutter contre le froid en
+  se serrant les uns contre les autres, lutter contre des loups et se reproduire.
+  On retrouve ce comportement aussi chez les manchots et les éléphants
+  de mer.  </p>
+<p>Ce TP constitue un résumé par rapport à ce que vous avez appris dans cette première moitié du module de <a href="http://www2.lirmm.fr/~ferber/ProgAgent/index.html">Programmation par Agent</a></p>
+<h2>1. Regroupement</h2>
+<h3>a) se regrouper </h3>
+<p>On veut créer un phénomène de regroupement. Pour cela
+  on désire que  les boeufs musqués soient capables de se regrouper
+  mais sans se retrouver sur le même patche. Il est donc nécessaire
+  qu'ils s'éloignent s'ils sont trop près et qu'ils restent à la
+  bonne distance pour former un troupeau serré d'animaux.</p>
+<p>Implémenter un phénomène de regroupement entre les
+  agents à partir d'une détection des autres agents (on utilisera
+  la primitive <tt>in-radius</tt> vue
+  en cours et en TP). On supposera qu'ils avancent de manière aléatoire
+  tout en cherchant à rester en contact avec les autres. On appellera
+  cette procédure de regroupement, associée à chaque
+  Boeuf:
+  <tt> regrouper.</tt>Cela signifie que la procédure <tt>go-boeuf</tt> consiste
+  essentiellement à appeler  la procédure <tt>regrouper.  </tt></p>
+<p>Visualiser le regroupement des boeufs en fonction du paramètre <tt>distance-min</tt>  qui gère
+  la distance minimale que les boeufs musqués peuvent  avoir entre eux
+  (lorsque leur distance devient inférieure à <tt>distance-min</tt>, ils
+  se repoussent, comme des porc-épic..) </p>
+<h3>b) Chercher de la nourriture </h3>
+<p>On suppose que les boeufs musqués cherchent aussi à manger.
+  On implémentera un système de croissance d'herbe comme pour le
+  <a href="http://www2.lirmm.fr/~ferber/ProgAgent/TP2.html">TP2</a>.. On suppose que les boeufs disposent
+  d'une variable <tt>energie</tt> qui correspond à la valeur de nourriture
+  qu'ils consomment (paramètre consommation-herbe sous la forme d'un slider.
+  L'herbe du patche sur lequel se trouve le boeuf perd la <tt>taille-plante</tt> correspondant à cette
+  consommation. Voir <a href="http://www2.lirmm.fr/~ferber/ProgAgent/TP2.html">TP2</a>). Lorsque cette valeur descend
+  en dessous d'une certaine valeur (<tt>energie-min</tt>),
+  ils se mettent en quête de nourriture, et donc quittent leur groupe. Implémenter
+  la procédure <tt>quete-nourriture</tt> qui leur fait rechercher de la
+  nourriture. </p>
+<p>On suppose d'autre part qu'à chaque cycle, les boeufs perdent une certaine
+  valeur d'énergie (ceci est vrai dans tous les cas de figure et donc
+  même pour les autres comportements que l'on développera par la
+  suite). Cette valeur sera mise sous la forme d'un slider (<tt>conso-energie</tt>).
+  Lorsque cette variable d'énergie arrive à zéro, les boeufs
+  meurent.  </p>
+<p>On voit donc que les boeufs ont pour l'instant deux états: un état
+  correspondant à l'activité <tt>regrouper</tt>, qui est activée tant
+  que l'énergie est suffisante, et <tt>quete-nourriture</tt> qui se déclenche
+  dès que la nourriture est faible.      </p>
+<p>Implémenter les boeufs avec ce double état.</p>
+<h3>c) Affronter les loups</h3>
+<p>On suppose maintenant qu'il existe deux types de boeufs: des enfants et des
+  adultes (il est préférable de mettre le statut "<tt>enfant/adulte</tt>"
+  sous la forme d'une variable d'état. On suppose aussi qu'il existe des
+  loups qui cherchent à attaquer
+  les boeufs. Lorsque les boeufs sont attaqués (lorsqu'un loup se trouve
+  dans leur rayon de perception), ils arrêtent de manger et se regroupent. Mais
+  en plus ils deviennent "bleus" (ou "vert" de trouille) pendant un temps correspondant
+  au paramètre
+  <tt>temps-recuperation</tt> (exprimé sous
+  la forme d'un slider). D'autre part, pendant qu'ils ont peur les enfants fuient
+  les loups, et les adultes font face aux loups sans bouger (comme le montre
+  la deuxième
+  photo sur cette page).</p>
+<p>Enfin, on suppose que les loups peuvent manger des boeufs  enfants s'ils se
+  trouvent sur la même case que l'enfant boeuf (on rappelle que la procedure
+  <tt>die</tt> fait mourir un agent), et qu'ils ne peuvent pas avancer si un adulte se
+  trouve devant eux (ils ne peuvent pas aller sur la case où se
+  trouve déjà un
+  boeuf).   </p>
+<p>Implémenter ce nouveau comportement des boeufs, en ayant présent
+  qu'il y a maintenant un nouvel état (<tt>avoir-peur</tt>) qui traduit deux comportements
+  différents, selon que l'on est adulte ou enfant.  </p>
+<h3>d) se reproduire </h3>
+<p>On suppose maintenant  que les adultes peuvent produire de nouveaux enfants,
+  tous les <tt>temps-generation</tt>.
+  D'autre part, les enfants peuvent devenir adulte lorsque le temps <tt>enfance</tt> est
+  passé (mettre temps-generation et enfance sous la forme d'un compteur
+  que l'on décrémente, comme on l'a vu pour d'autres TP). Lors
+  de la génération d'un nouvel  enfant, l'énergie du parent
+  est divisée en deux, et l'enfant récupère la moitié de
+  l'énergie du parent..     </p>
+<p>Mettre tout cela ensemble et ajuster les paramètres pour que votre
+  population survive... Mais là, il n'y a plus qu'à observer..  </p>
+<p>Bravo si vous êtes arrivés jusque là...   </p>
+
+
+
+
+
+
+</body></html>

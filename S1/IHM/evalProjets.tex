@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+%\usepackage{fullpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{nlephilippe, sbricas, vbazia, tcastanie} 
+\fancyhead[R]{Thibaut Castanié}
+
+\begin{document}
+\renewcommand{\thesection}{\arabic{section}}
+
+\section{OufSearch}
+\subsection{Design général}
+Le design du forum OufSearch est de type minimaliste. Les couleurs sont \textit{flat} et efficaces. Elles permettent de mettre en avant les éléments importants tout en respectant la charte graphique du site. L'ensemble du fond du site est sombre et le texte est clair, ce qui permet une lecture optimale et prolongée sans fatiguer les yeux de l'utilisateur. Le site est \textit{responsive design}, ce qui permet son utilisation sur mobile sans encombres. De plus, il s'adapte à la largeur en prenant tout l'espace disponible, ce qui permet de ne pas laisser d'espace libre. Enfin, sur la page d'un sujet, un gros bouton \textsc{répondre} est fixé au bas de l'écran, il n'est donc pas nécessaire de scroller tout en bas de la page pour accéder au formulaire de réponse. La barre de recherche est présente sur toutes les pages du site et mise en avant de par sa taille et son utilité. 
+\subsection{Aspects technique}
+Le forum est réalisé en utilisant les technologies du web telles que le \texttt{html}/\texttt{css}, \texttt{javascript}, et \texttt{php}. Le contenu des sujets est stocké dans une base de données de type \texttt{SQL}.
+\paragraph{} Dans un premier temps, un utilisateur peut lancer une requête sur la barre de recherche et parcourir les choix proposés en affinant sa recherche grâce aux ouftags qu'il peut sélectionner ou déselectionner. Si il ne trouve pas de sujet correspondant à son envie, il peut en créer un et ainsi démarrer une nouvelle conversation.
+\paragraph{} L'utilisateur peut aussi trouver son bonheur dans les 6 catégories de la page d'accueil qui permettent d'afficher les sujets populaires, les favoris... etc.
+\paragraph{} Le site est anonyme, il n'y a donc pas de compte utilisateur. Tout est stocké dans les cookies propres à chaque machine utilisée pour se connecter au site web. Si l'utilisateur nettoie ses cookies ou change d'ordinateur, il n'aura donc plus accès à son historique, ou ses favoris.
+\subsection{Conclusion}
+OufSearch est un site très bien réalisé au design simple est épuré qui correspond parfaitement à un forum de ce type, destiné à être ouvert à un très large public. Sa dimension communautaire assure le futur détronnement de grands ténors du web tels Yahoo!Answers ou encore Twitter.
+
+\newpage
+
+\fancyhead[L]{mmorin ...} 
+\section{AdopteUnJeu}
+\subsection{Design général}
+La page d'accueil du site adopte un jeu possède une interface claire et efficace. Son design est propre et le jeu de couleurs choisi est agréable à l'oeil. De plus le code couleur est respecté dans toutes les sections du site. Le carrousels d'images de jaquettes de jeux-vidéos populaires sur l'écran d'accueil ajoute un effet attractif non négligeable, qui donne envie de cliquer sur les flèches pour faire défiler les beaux artworks proposés. Ensuite, on trouve une liste de jeux-vidéos représentés par une vignette, un titre et une courte description du jeu, ainsi qu'un menu à gauche composé de différents filtres permettant d'effectuer une recherche sur la base de donnée des jeux-vidéos, via un système de facettes. Le logo choisi pour le site rapelle le très controversé AdopteUnMec, ce qui permet de se dire que le site fonctionne avec le même principe, mais pour les jeux-vidéos plutôt que pour les hommes.
+\paragraph{À améliorer}
+\begin{itemize}
+\item Le menu de gauche possède trop d'effets de dégradés qui empêchent la bonne visibilité du texte, et qui entrave sa lisibilité
+\item Toujours dans le menu des filtres, l'utilisation de logos pixelisés pour les flèches descendantes et la loupe de recherche, contraste énormément avec le design épuré du site
+\item Les mêmes icônes pixelisés sont présentes sur les fiches des jeux, aux niveaux des étoiles pour la notation
+\item Les images choisies pour représenter les jeux sont dans une basse résolution, ce qui donne un rendu moyen et repousse l'œil au lieu de l'attirer
+\end{itemize}
+\subsection{Aspects technique}
+Il est possible de créer son compte sur le site afin d'accéder à plus de fonctionnalités. Les membres peuvent s'échanger des messages entre-eux, uploader une photo de profil, participer aux votes sur les fiches de jeux et poster des avis et commentaires. Les jeux sont définis par des mots-clés et permettent une recherche par facettes. Ainsi chaque jeux possède une date de sortie, une note moyenne, un genre, une plateforme, un type ... etc.
+\subsection{Conclusion}
+Ce site web est une très bonne idée, et permet d'avoir une base de données de jeux vidéos sur laquelle tout le monde peut lancer des requêtes grâce au système de recherche à facettes. Cepandant, dans l'état actuel des choses, le site proposé est plus un prototype qu'un réel produit fini.
+\newpage 
+
+\fancyhead[L]{swouters} 
+\section{Tableau blanc partagé}
+\subsection{Design général}
+\paragraph{Technote}
+La technote possède un design épuré et très efficace. La documentation du projet est claire et très propre. Le sommaire à gauche permet de toujours se situer dans la lecture de la technote. Chaque titre possède son propre style en fonction de son importance, ce qui assure une bonne compréhension globale. De plus les différents éléments présents dans le tutoriel, tels que les extraits de codes les boutons, ou les notes ont leur propre style ce qui permet de les différencier du reste du texte.
+\paragraph{Tableau blanc}
+Le design du tableau blanc partagé est minimaliste. La majeure partie de l'écran est occupée par l'espace de dessin, tandis qu'un petit menu à droite permet de sélectionner la couleur et la taille du pinceau. Une barre en haut affiche le nombre de connectés sur la page.
+\subsection{Aspects technique}
+En utilisant la technologie Node.js, le site permet de synchroniser en temps réel les traits de dessin réalisés par chaque utilisateur.Chaque coup de crayon est donc envoyé au serveur qui se contente de renvoyer l'information aux utilisateurs connectés. En regardant de plus près, on remarque qu'à chaque mouvement de souris, avec le clic de souris enfoncé, un trait de 1 pixel de large et de longueur choisie par l'utilisateur, est ajouté sur l'espace de dessin et est donc synchronisé avec le serveur et les autres utilisateurs.
+\paragraph{À améliorer}
+\begin{itemize}
+\item Lorsque qu'un coup de "pinceau" rapide est donné, le rendu du trait dessiné n'est pas très beau, car ile est composé de plein de petites barres horizontales trop espacées
+\item Quand le clic de souris est enfoncé sur l'espace de dessin, le curseur devrait se transformer en pinceau ou en crayon afin que ce soit plus explicite
+\end{itemize}
+\subsection{Conclusion}
+Cette application web est, de par sa simplicité, terriblement efficace et donc facilement compréhensible par tout utilisateur. De son côté, la technote frôle la perfection, que se soit de par son design où de son contenu.
+
+\newpage
+
+\fancyhead[L]{snzingoula} 
+\section{Timer graphique}
+\subsection{Design général}
+\paragraph{Le timer}Ce petit widget possède un design épuré allant droit au but. Il permet d'afficher un cadran de couleur autour d'un chiffre qui croît ou décroît. Pour la démo, les chiffres représentent l'heure, les minutes et les secondes actuelles. Le cadran est vide à 0 et plein à 60, pour les secondes et les minutes, et plein à 24 pour les heures. Les chiffres possèdent un effet d'ombres et sont de couleur blanche sur fond sombre, ce qui facilite la lecture et apaise les yeux.
+\paragraph{Technote}La technote est un document \texttt{pdf} de type rapport réalisé à l'aide d'un traitement de texte. Les fonctionnalités du widget sont très bien expliquées et illustrées. Il est impossible de ne pas comprendre son fonctionnement après une lecture attentive du document. Il y a cependant certains points visuels à améliorer. Seule la couleur permet de différencier les types de titres, ce qui peut perdre l'utilisateur durant sa lecture. De plus, il aurait était judicieux de placer des liens permettant de retourner au sommaire pour visualiser son avancement dans la lecture du document.
+\subsection{Aspects technique}
+Cette horloge design utilise les technologies classiques du web : \texttt{html}, \texttt{css}, \texttt{javascript} (\texttt{jQuery}). Le script cache une partie de l'image du cadran en fonction du numéro auxquel il est rattaché. Ainsi, lorsque le cadran est plein, cela signifie que rien n'est caché, alors que quand le cadran est à moitié, seul la moitié de l'image est cachée. Pour cacher l'image, le script utilise un calcul d'angle en fonction du numéro rattaché.
+\subsection{Conclusion}
+Ce timer graphique est un script permettant d'embellir des compteurs ou des chronomètres qu'on pourrait utiliser sur un site web. Son utilité est purement visuelle, mais sa simplicité d'utilisation permet de l'implémenter sans difficulté. La technote est très bien documentée et remplit son office.
+
+\newpage
+
+\fancyhead[L]{mdemaille} 
+\section{Horloge - Canvas}
+\subsection{Design général}
+Le site web présenté ne possède aucun design à proprement parler. Seule une horloge est présente en haut à gauche de la page, suivi d'un lien vers une technote. L'horologe est représenté par un cercle dans lequel des aiguilles tournent en fonction de l'heure actuelle du système. La technote est un document \texttt{pdf} simple dans lequel l'auteur explique pas à pas la façon dont il a réalisé cette horloge. La mise en page est classique et peu adaptée pour une technote.
+\subsection{Aspects technique}
+L'horloge est entièrement dessinée dans un \textit{canvas} javascript. La façon de procéder est très bien expliquée dans la technote. Les éléments sont placés en fonction de leur position \texttt{x} et \texttt{y} dans le \textit{canvas}. Chaque milliseconde, la rapelle à nouveau la fonction de dessin pour mettre à jour la position des aiguilles en fonction de l'heure actuelle du système.
+\subsection{Conclusion}
+Cette réalisation est simple, rapide et va droit au but. L'auteur n'a pas fait preuve de zèle en ne s'intéressant pas au design de son produit et de sa technote explicative. Le contenu est pauvre il n'y a donc pas grand chose à évaluer.
+
+\end{document}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Widget slider</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+
+	<style type="text/css">
+	h1{
+		text-align: center;
+		margin-top: 0px;
+	}
+	#mainBloc{
+		margin-left: auto;
+		margin-right: auto;
+		width: 480px;
+		background-color: #ccc;
+		padding:20px;
+		border: 2px solid #444;
+		border-radius: 20px;
+	}
+	input{
+		border: 0px;
+		background-color: transparent;
+	}
+	#sliderRed .ui-slider-range { background: red; }
+	#sliderRed .ui-slider-handle { border-color: red; }
+	#sliderRed .ui-slider-handle { background: #e74c3c; }
+	#sliderGreen .ui-slider-range { background: green; }
+	#sliderGreen .ui-slider-handle { border-color: green; }
+	#sliderGreen .ui-slider-handle { background: #2ecc71; }
+	#sliderBlue .ui-slider-range { background: blue; }
+	#sliderBlue .ui-slider-handle { border-color: blue; }
+	#sliderBlue .ui-slider-handle { background: #3498db; }
+	#apercu {
+		width: 480px;
+		height: 360px;
+		background-image: none;
+		margin-top: 20px;
+		border-radius: 5px;
+		border: 1px solid #444;
+	}
+
+	</style>	
+
+</head>
+<body onload="refreshApercu();">
+
+	<script type="text/javascript">
+	function hexFromRGB(r, g, b) {
+		var hex = [
+		r.toString( 16 ),
+		g.toString( 16 ),
+		b.toString( 16 )
+		];
+		$.each( hex, function( nr, val ) {
+			if ( val.length === 1 ) {
+				hex[ nr ] = "0" + val;
+			}
+		});
+		return hex.join( "" ).toUpperCase();
+	}
+
+	function refreshApercu() {
+		var red = Math.round(($( "#sliderRed" ).slider( "values" , 0) + $( "#sliderRed" ).slider( "values" , 1)) /2),
+		green = Math.round(($( "#sliderGreen" ).slider( "values" , 0) + $( "#sliderGreen" ).slider( "values" , 1)) /2),
+		blue = Math.round(($( "#sliderBlue" ).slider( "values" , 0) + $( "#sliderBlue" ).slider( "values" , 1)) /2),
+		hex = hexFromRGB( red, green, blue );
+		$( "#apercu" ).css( "background-color", "#" + hex );
+	}
+
+	$(function() {
+		$( "#sliderRed" ).slider({
+			range: true,
+			min: 0,
+			max: 255,
+			values: [ 53, 222 ],
+			change: refreshApercu,
+			slide: function( event, ui ) {
+				//refreshApercu();
+				$( "#nRed" ).val( "R : (" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + ")/2 = " + Math.round(((ui.values[0])+ui.values[1])/2));
+			}
+		});
+		$( "#sliderGreen" ).slider({
+			range: true,
+			min: 0,
+			max: 255,
+			values: [ 89, 240 ],
+			change: refreshApercu,
+			slide: function( event, ui ) {
+				//refreshApercu();
+				$( "#nGreen" ).val( "G : (" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + ")/2 = " + Math.round(((ui.values[0])+ui.values[1])/2));
+			}
+		});
+		$( "#sliderBlue" ).slider({
+			range: true,
+			min: 0,
+			max: 255,
+			values: [ 0, 133 ],
+			change: refreshApercu,
+			slide: function( event, ui ) {
+				//refreshApercu();
+				$( "#nBlue" ).val( "B : (" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + ")/2 = " + Math.round(((ui.values[0])+ui.values[1])/2));
+			}
+		});
+
+		$( "#nRed" ).val( "R : (" + $( "#sliderRed" ).slider( "values", 0 ) + "-" + $( "#sliderRed" ).slider( "values", 1 ) + ")/2 = " + Math.round(($( "#sliderRed" ).slider( "values" , 0) + $( "#sliderRed" ).slider( "values" , 1)) /2));
+		$( "#nGreen" ).val( "G : (" + $( "#sliderGreen" ).slider( "values", 0 ) + "-" + $( "#sliderGreen" ).slider( "values", 1 ) + ")/2 = " + Math.round(($( "#sliderGreen" ).slider( "values" , 0) + $( "#sliderGreen" ).slider( "values" , 1)) /2));
+		$( "#nBlue" ).val( "B : (" + $( "#sliderBlue" ).slider( "values", 0 ) + "-" + $( "#sliderBlue" ).slider( "values", 1 ) + ")/2 = " + Math.round(($( "#sliderBlue" ).slider( "values" , 0) + $( "#sliderBlue" ).slider( "values" , 1)) /2));
+
+	});
+</script>
+
+<div id="mainBloc">
+	<h1>Widget Slider</h1>
+
+	<div id="sliderRed" style="width:480px;"></div>
+	<input type="text" id="nRed" readonly>
+
+	<div id="sliderGreen" style="width:480px;"></div>
+	<input type="text" id="nGreen" readonly>
+
+	<div id="sliderBlue" style="width:480px;"></div>
+	<input type="text" id="nBlue" readonly>
+
+	<div id="apercu"></div>
+
+</div>
+
+
+</body>
+</html>

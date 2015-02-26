@@ -1,0 +1,45 @@
+\documentclass[a4paper,11pt]{report}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{changepage}
+%\usepackage{fullpage}
+
+\begin{document}
+
+\title{\textbf{Keystroke Oufsearch}}
+\author{Vincent Bazia, Samuel Bricas, Thibaut Castanié, Noé Le Philippe}
+\date{}
+\pagestyle{empty}
+\maketitle
+
+La représentation Keystroke a été réalisée sur le forum internet "Yahoo Answer" ainsi que sur la maquette de notre projet Oufsearch afin de les comparer entre eux. La représentation est basée sur l'action de création d’une question sur le forum.
+
+
+\section*{Keystroke de l’existant}
+Pour poster une question sur Yahoo Answer, il faut se rendre sur la page d’accueil et cliquer sur le cadre prévu pour l’écriture d’une question. Il est nécessaire de cliquer sur un bouton « détail » pour avoir accès au cadre d’écriture des détails de la question. Une fois le message rédigé, on peut le poster en appuyant sur le bouton « soumettre ». Cette analyse nous permet donc de créer la représentation Keystroke suivante :
+
+\begin{adjustwidth}{2cm}{}
+MHPK (clic sur le bouton « détail ») \newline+ PK (clic sur le cadre « titre ») + MHK (écriture) \newline+ HPK (clic sur le cadre des détails) \newline+ MHK (écriture) \newline+ HPK (bouton de soumission) \newline= 10.45s.
+\end{adjustwidth}
+
+En réalité, ce qui prend le plus de temps est la rédaction de la question. La soumission d’une question courte (avec détails) se fait en 13s, ce qui représente un décalage de 3s car l’activité mentale (M) prend plus de temps sur ce genre de cas.
+
+\section*{Keystroke d’Oufsearch}
+
+L’analyse à été réalisée à partir des maquettes fabriquées pour la conception. Pour créer un topic sur le forum Oufsearch, il faut commencer par faire une recherche (vide ou non) dans la barre de recherche du site car c’est ainsi que l’on a accès au bouton de création de question. Le formulaire permettant la saisei de la question est conçu en deux parties : une partie question et une partie détails. Une fois la question rédigée, un clic sur le bouton « envoyer » soumet la requête.\newline La représentation Keystroke suivante a donc été créée :
+
+\begin{adjustwidth}{2cm}{}
+MPK (déplacement du curseur dans la barre de recherche) \newline+ MHK (recherche puis « entrer ») 
+\newline+ MHPK (clic sur le bouton « topic ») \newline+ PK (clic sur la partie « question ») \newline+ MHK (écriture de 
+la question) \newline+ HPK (clic sur la partie « détail ») \newline+ MHK (écriture des détails) \newline+ MHPK (clic sur 
+le bouton « envoyer ») \newline= 16,10s
+\end{adjustwidth}
+
+
+\section*{Constatation des différences}
+La comparaison des deux forums nous permet de constater que pour une même action, 
+l’utilisateur met 6 secondes de plus sur Oufsearch que sur Yahoo Answer. Ceci s’explique par le fait que la création de topic se fait directement depuis la page d’accueil de Yahoo Answer alors que sur le forum Oufsearch, il est nécessaire de réaliser une recherche pour accéder au formulaire d’écriture d’une question, il y a donc moins déplacement de la souris et des mains sur Yahoo Answer.
+
+\end{document}

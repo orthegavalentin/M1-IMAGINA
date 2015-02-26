@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Compression LZW</title>
+	<script type="text/javascript" src="LZW.js"></script>
+</head>
+
+<body>
+	<h2>Compression LZW</h2>
+	<big>Thibaut Castanié, M1 IMAGINA</big>
+	<p>Interface graphique rapide pour utiliser l'algo de compression/décompression LZW</p>
+	<hr/>
+
+	<div>
+		<h4>Compression d'une chaîne de caractères au choix</h4>
+		<p>Entrer une chaîne de caractères au clavier, la compresser via l'algo de compression LZW, puis décompresser la chaîne obtenue pour comparer les résultats.</p>
+		<input id="stringEntree" type="text" size="50" placeholder="Entrez une string à compresser" />
+		<button onclick="
+						 document.getElementById('tailleEntree').innerHTML = 'Taille entrée : ' + (document.getElementById('stringEntree').value).length;
+						 var comp = LZW.compress(document.getElementById('stringEntree').value);
+						 document.getElementById('resultComp').value = comp;
+						 document.getElementById('tailleComp').innerHTML = 'Taille compressée : ' + comp.length;
+						 ">Compresser</button>
+		<input id="resultComp" size="50" type="text" readOnly="true" />
+		<button onclick="
+						 var decomp = LZW.decompress(document.getElementById('resultComp').value.split(',').map(Number));
+						 document.getElementById('resultDecomp').value = decomp;
+						 document.getElementById('tailleDecomp').innerHTML = 'Taille décompressée : ' + decomp.length;
+						 ">Décompresser</button>
+		<input id="resultDecomp" size="50" type="text" readOnly="true" />
+
+		<div id="tailleEntree"></div>
+		<div id="tailleComp"></div>
+		<div id="tailleDecomp"></div>
+		<script type="text/javascript">
+			document.getElementById("tailleEntree").innerHTML = "Taille entrée : 0" + (document.getElementById('stringEntree').value).length;
+			document.getElementById("tailleComp").innerHTML = "Taille compressé : 0" + (document.getElementById('resultComp').value).length;
+			document.getElementById("tailleDecomp").innerHTML = "Taille décompressé : 0" + (document.getElementById('resultDecomp').value).length;
+		</script>
+	</div>
+
+	<hr/>
+	
+	<h4>Compression/Décompression d'un fichier volumineux </h4>
+	<textarea id="fichierEntree" placeholder="Contenu fichier original" rows="3" cols="50"></textarea>
+	<textarea id="fichierComp" placeholder="Contenu fichier compressé" rows="3" cols="50"></textarea>
+	<textarea id="fichierDecomp" placeholder="Contenu fichier décompressé" rows="3" cols="50"></textarea>
+	<div><button onclick="main();">Lancer la compression/décompression sur le fichier à 1 Mo (patienter quelques secondes...)</button></div>
+	<div id="avance"></div>
+	<div id="tailleFichierInit"></div>
+	<div id="tailleFichierComp"></div>
+	<div id="tailleFichierDecomp"></div>
+	
+	<script type='text/javascript'>
+		function main() {
+			var cheminFichier = "random.dat";
+			var contenuString = Fichier.lecteurFichier(
+				cheminFichier
+			);
+			
+			document.getElementById("avance").innerHTML = "Lecture fichier... ";
+			document.getElementById("fichierEntree").value = contenuString;
+			document.getElementById("tailleFichierInit").innerHTML = "Taille initiale du fichier : " + contenuString.length + " octets = " + contenuString.length/1024 + "Ko";
+			
+			document.getElementById("avance").innerHTML += "Compression... ";
+			var compFichier = LZW.compress(contenuString);
+			document.getElementById("fichierComp").value = compFichier;
+			document.getElementById("tailleFichierComp").innerHTML = "Taille du fichier compressé : " + compFichier.length + " octets = " + compFichier.length/1024 + "Ko";
+			
+			document.getElementById("avance").innerHTML += "Décompression... ";
+			var decompFichier = LZW.decompress(compFichier);
+			document.getElementById("fichierDecomp").value = decompFichier;
+			document.getElementById("tailleFichierDecomp").innerHTML = "Taille du fichier décompressé : " + decompFichier.length + " octets = " + decompFichier.length/1024 + "Ko";
+		}
+
+		function Fichier() {} {
+			Fichier.lecteurFichier = function (cheminFichier) {
+				var request = new XMLHttpRequest();
+				request.open("GET", cheminFichier, false);
+				request.send(null);
+				var returnValue = request.responseText;
+				return returnValue;
+			}
+		}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+2
+herb(c)
+cruel(l)
+5
+cruel(x);carnivore(x)
+herb(x);mange(x,h)
+carnivore(x);herb(y);mange(x,y)
+carnivore(x);bois(x,e)
+herb(x);bois(x,e)

@@ -1,0 +1,173 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1557" measuredH="739" mockupW="1280" mockupH="720">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="277" y="19" w="1280" h="720" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>EXSPORTS%0Ahttp%3A//www.exsports.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Accordion" x="324" y="256" w="165" h="447" measuredW="153" measuredH="483" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>3</selectedIndex>
+        <text>Boardshorts%0AClothing%0A-%20T-shirts%0A-%20Shirts%0A-%20Sweatshirts%20%26%20Hoodies%0A-%20Jackets%0A-%20Jeans%0A-%20Shorts%0A-%20Pants%0A-%20Polos%20and%20Knits%0A-%20Tanks%0A-%20Sweaters%0A-%20Boxers%20%26%20Socks%0AAccessories%0AShoes</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::IconLabel" x="324" y="112" w="-1" h="-1" measuredW="69" measuredH="63" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <labelPosition>bottom</labelPosition>
+        <state>up</state>
+        <text>EXSPORTS</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::ButtonBar" x="423" y="124" w="-1" h="-1" measuredW="831" measuredH="38" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <selectedIndex>-1</selectedIndex>
+        <size>24</size>
+        <text>Men%2C%20Women%2C%20Kids%2C%20Skate%2C%20Snowboard%2C%20Surf%2C%20Collections%2C%20Christmas</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::SearchBox" x="1374" y="131" w="123" h="-1" measuredW="120" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Search</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="326" y="199" w="-1" h="-1" measuredW="233" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Home%2C%20Mens%2C%20Colthing%2C%20Shirts</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::ButtonBar" x="652" y="275" w="231" h="33" measuredW="166" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>1%2C%202%2C%203%2C%204%20%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::ComboBox" x="967" y="276" w="121" h="-1" measuredW="107" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Items%20/%20Page</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ComboBox" x="1168" y="275" w="111" h="-1" measuredW="73" measuredH="78" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Sort%20by%0APrice%0APopularity%0ADate</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::CallOut" x="554" y="276" w="46" h="32" measuredW="46" measuredH="39" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <color>16777215</color>
+        <text>155</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Image" x="559" y="368" w="180" h="180" measuredW="533" measuredH="640" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::TextInput" x="559" y="548" w="180" h="-1" measuredW="100" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Clothing%20name</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Image" x="919" y="368" w="180" h="180" measuredW="533" measuredH="640" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="919" y="548" w="180" h="-1" measuredW="100" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Clothing%20name</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Image" x="739" y="368" w="180" h="180" measuredW="533" measuredH="640" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="739" y="548" w="180" h="-1" measuredW="100" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Clothing%20name</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Image" x="1099" y="368" w="180" h="180" measuredW="533" measuredH="640" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::TextInput" x="1099" y="548" w="180" h="-1" measuredW="100" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>up</state>
+        <text>Clothing%20name</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::Image" x="559" y="599" w="180" h="111" measuredW="533" measuredH="395" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <crop>0%2C0%2C1000%2C617</crop>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="739" y="599" w="180" h="111" measuredW="533" measuredH="395" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <crop>0%2C0%2C1000%2C617</crop>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="919" y="599" w="180" h="111" measuredW="533" measuredH="395" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <crop>0%2C0%2C1000%2C617</crop>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Image" x="1099" y="599" w="180" h="111" measuredW="533" measuredH="395" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <crop>0%2C0%2C1000%2C617</crop>
+        <filter>true</filter>
+        <src>../T%25C3%25A9l%25C3%25A9chargements/pullover-148360_640.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Canvas" x="280" y="241" w="247" h="469" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>8359053</color>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Canvas" x="280" y="241" w="1274" h="100" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>12436423</color>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title>TP2</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<canvas id="datCanvas" width="640" height="480" style="border: dashed 1px;">Change de navigateur</canvas>
+
+	<script type="text/javascript">
+	var c = document.getElementById("datCanvas");
+	var ctx = c.getContext("2d");
+
+	ctx.fillStyle = "#ccc";
+	ctx.fillRect(20,20,600,60);
+
+	ctx.fillStyle = "black";
+	ctx.beginPath();
+	ctx.moveTo(25,25);
+	ctx.lineTo(200,25);
+	ctx.lineTo(200,200);
+	ctx.fill();
+
+	ctx.fillStyle = "#ccc";
+	ctx.beginPath();
+	ctx.moveTo(50,35);
+	ctx.lineTo(190,35);
+	ctx.lineTo(190,175);
+	ctx.fill();
+
+	var gradient = ctx.createLinearGradient(250,250,200,1);
+	gradient.addColorStop(0,"white");
+	gradient.addColorStop(1,"black");
+	ctx.fillStyle = gradient;
+	ctx.beginPath();
+	ctx.moveTo(250,100);
+	ctx.lineTo(300,30);
+	ctx.lineTo(350,100);
+	ctx.fill();
+
+	ctx.fillStyle = "#ccc";
+	ctx.beginPath();
+	ctx.moveTo(270,90);
+	ctx.lineTo(300,50);
+	ctx.lineTo(330,90);
+	ctx.lineTo(270,90);
+	ctx.fill();
+
+    var gradient2 = ctx.createLinearGradient(10,300,600,300);
+    gradient2.addColorStop(0,"purple");
+    gradient2.addColorStop(0.5,"blue");
+    gradient2.addColorStop(1,"red");
+    ctx.fillStyle = gradient2;
+	ctx.font = "30pt Verdana";
+	ctx.fillText('Bonjour Valérie', 250, 200);
+
+	var image = new Image(); 
+	image.src = 'http://cdn-premiere.ladmedia.fr/var/premiere/storage/images/tele/news-tele/valerie-damidot-presentatrice-de-d-co-j-ai-plein-d-autres-couleurs-sur-ma-palette-3486530/63373390-1-fre-FR/Valerie-Damidot-Presentatrice-de-D-CO-j-ai-plein-d-autres-couleurs-sur-ma-palette_portrait_w532.jpg';
+	image.onload = function() {
+  		ctx.drawImage(this,150,250,300,180);
+	};
+</script>
+</body>
+</html>
