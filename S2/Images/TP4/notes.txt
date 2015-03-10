@@ -1,0 +1,128 @@
+Envoyer CR à fares.graba@lirmm.fr avant 27 février
+
+
+1.
+http://cdn.collider.com/wp-content/uploads/resident-evil-afterlife-movie-image-milla-jovovich-31.jpg
+
+
+2.
+
+pour i de 0 à nbrePixelsImage
+	pixelR = imageEntree[i*3];
+	pixelG = imageEntree[(i*3)+1];
+	pixelB = imageEntree[(i*3)+2];
+	imageSortie[i] = moyenne(pixelR, pixelG, pixelB);
+fin pour
+
+
+3.
+Seuil utilisé = 180
+
+pour i de 0 à nbrePixelsImage
+	si (imageEntree[i]) < seuilChoisi
+		imageSortie[i] = 0;
+	sinon
+		imageSortie[i] = 255;
+	fin si
+fin pour
+
+
+4.
+pour i de 0 à nbrePixelsImage*3, i+=3
+    imageSortie[i] = (imageEntree[i]+              //pixel central
+                      imageEntree[i+3]+            //pixel de droite
+                      imageEntree[i-3]+            //pixel de gauche
+                      imageEntree[i+(nW*3)]+       //pixel du dessous
+                      imageEntree[i-(nW*3)]+       //pixel du dessus
+                      imageEntree[i+(nW*3)-3]+     //pixel bas-gauche
+                      imageEntree[i+(nW*3)+3]+     //pixel bas-droit
+                      imageEntree[i-(nW*3)+3]+     //pixel haut-droit
+                      imageEntree[i-(nW*3)-3])     //pixel haut gauche
+                      /9;
+    imageSortie[i+1] = (imageEntree[i+1]+          //pixel central
+                        imageEntree[i+4]+          //pixel de droite
+                        imageEntree[i-2]+          //pixel de gauche
+                        imageEntree[i+(nW*3)+1]+   //pixel du dessous
+                        imageEntree[i-(nW*3)+1]+   //pixel du dessus
+                        imageEntree[i+(nW*3)-2]+   //pixel bas-gauche
+                        imageEntree[i+(nW*3)+4]+   //pixel bas-droit
+                        imageEntree[i-(nW*3)+4]+   //pixel haut-droit
+                        imageEntree[i-(nW*3)-2])   //pixel haut gauche
+                        /9;
+    imageSortie[i+2] = (imageEntree[i+2]+          //pixel central
+                        imageEntree[i+5]+          //pixel de droite
+                        imageEntree[i-1]+          //pixel de gauche
+                        imageEntree[i+(nW*3)+2]+   //pixel du dessous
+                        imageEntree[i-(nW*3)+2]+   //pixel du dessus
+                        imageEntree[i+(nW*3)-1]+   //pixel bas-gauche
+                        imageEntree[i+(nW*3)+5]+   //pixel bas-droit
+                        imageEntree[i-(nW*3)+5]+   //pixel haut-droit
+                        imageEntree[i-(nW*3)-1])   //pixel haut gauche
+                        /9;
+fin pour
+
+5.
+pour i de 0 à nbrePixelsImage*3, i+=3
+    si imageBinaire[i/3] == 255
+        imageSortie[i] = (imageEntree[i]+
+                          imageEntree[i+3]+
+                          imageEntree[i-3]+
+                          imageEntree[i+(nW*3)]+
+                          imageEntree[i-(nW*3)]+
+                          imageEntree[i+(nW*3)-3]+
+                          imageEntree[i+(nW*3)+3]+
+                          imageEntree[i-(nW*3)+3]+
+                          imageEntree[i-(nW*3)-3])
+                          /9;
+        imageSortie[i+1] = (imageEntree[i+1]+
+                            imageEntree[i+4]+
+                            imageEntree[i-2]+
+                            imageEntree[i+(nW*3)+1]+
+                            imageEntree[i-(nW*3)+1]+
+                            imageEntree[i+(nW*3)-2]+
+                            imageEntree[i+(nW*3)+4]+
+                            imageEntree[i-(nW*3)+4]+
+                            imageEntree[i-(nW*3)-2])
+                            /9;
+        imageSortie[i+2] = (imageEntree[i+2]+
+                            imageEntree[i+5]+
+                            imageEntree[i-1]+
+                            imageEntree[i+(nW*3)+2]+
+                            imageEntree[i-(nW*3)+2]+
+                            imageEntree[i+(nW*3)-1]+ 
+                            imageEntree[i+(nW*3)+5]+ 
+                            imageEntree[i-(nW*3)+5]+
+                            imageEntree[i-(nW*3)-1])
+                            /9;
+    sinon
+        imageSortie[i] = imageEntree[i];
+        imageSortie[i+1] = imageEntree[i+1];
+        imageSortie[i+2] = imageEntree[i+2];
+    fin si
+fin pour
+
+6.
+
+//erosion
+pour i de 0 à nbrePixelsImage
+    si imageEntree[i] == 255
+        imageSortie[i] = 255        //pixel central
+        imageSortie[i+1] = 255      //pixel de droite
+        imageSortie[i+2] = 255      //pixel de gauche
+        imageSortie[i-nW] = 255     //pixel du dessus
+        imageSortie[i+nW] = 255     //pixel du dessous
+    fin si
+fin pour
+
+//dilatation
+pour i de 0 à nbrePixelsImage
+    si imageEntree[i] == 0
+        imageSortie[i] = 0        //pixel central
+        imageSortie[i+1] = 0      //pixel de droite
+        imageSortie[i+2] = 0      //pixel de gauche
+        imageSortie[i-nW] = 0     //pixel du dessus
+        imageSortie[i+nW] = 0     //pixel du dessous
+    sinon
+        imageSortie[i] = 255
+    fin si
+fin pour

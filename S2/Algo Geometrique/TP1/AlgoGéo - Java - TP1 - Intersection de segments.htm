@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../UtilsAlgoGeo/css/sujet.css">
+  <link rel="stylesheet" type="text/css" href="../UtilsAlgoGeo/css/print.css" media="print" title="Normal" />
+
+  <script src="../UtilsAlgoGeo/js/mep.js"></script>
+  <title> AlgoGéo - Java - TP1 - Intersection de segments </title>
+</head>
+<body>
+<!-- utile pour l'affichage du menu (nav) et du titre (header) rempli automatiquement par js -->
+<div id ="top"></div>  
+
+<div id ="content">
+<p>Les points du plan seront représentés par une classe <code>PointVisible</code> qui représentera les coordonnées entières x et y des points appartenant au domaine <code>[O,xmax]x[0,ymax]</code>. Dans les exemples, vous pouvez prendre <code>xmax = 612</code> et <code>ymax =792</code>.</p>
+
+<h1>Exercice 1 - génération aléatoire des segments et mise en place des structures de données</h1>
+<p>Télécharger le <a href="src/src.zip">code source</a> pour commencer. La classe vue représente une fenêtre de dessin destinée à affichée l'ensemble des segments étudiés.</p>
+<ol>
+  <li>Ecrire une méthode de la classe Vue qui génère n segments dans le plan (n = 10 pour commencer) telle que:  </li>
+  <ul>
+    <li>Les segments sont des instances d'une classe <code>Segment</code> que vous écrirez et ils sont stockés dans une <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList &lt;Segment&gt;.</a></li>
+    <li>L'extrémité la plus à gauche d'un segment est stocké dans l'attribut <code>gauche</code> de la classe <code>Segment</code>, tandis que l'extrémité la plus à droite est stockée dans l'attribut <code>droit</code>.      </li>
+    <li>Notons  (xi, yi), (xj,yj), les coordonnées respectives des extrémités gauche et droite du segment i.   (xi, yi), (xj,yj) sont tirées au hasard dans les intervalles respectifs: 
+      <ul>
+        <li>[20,400]x[100,700] et </li>
+        <li>[xi+1,xi+100]x[yi-50,yi+50].</li>
+      </ul>
+    </li>
+     <li>NB: pour cette question, vous pouvez utiliser la méthode <code>Math.random()</code> de Java.</li>
+  </ul>
+  <li>Compléter le code pour:
+    <ul>
+      <li> afficher les segments générés.</li>
+      <li>regénérer aléatoirement l'ensemble des segments losqu'on double-clic sur la fenêtre.</li>
+    </ul>
+  </li>
+  </ol>
+<h1>Exercice 2 - Positions relatives et Intersection de deux segments</h1>
+<ul>
+  <li>Créer la méthode <code>cleInf</code> qui prend comme argument un segment cle2[p3,p4], et s'applique à un segment cle1[p1,p2] telle que <code>cle1-&gt;cleInf(cle2)</code> renvoie <code>vrai</code> si et seulement si cle2 est au dessus de cle1 au moment de la découverte de cle2 par la ligne de balayage. </li>
+  <li>Créer la méthode<code> intersect</code> qui prend comme argument un segment s1[p1,p2]. Appliquée à s2[p3,p4], <code>s2-&gt;intersec(s1)</code> renvoie <code>vrai</code> si et seulement si s2 et s1 ont une intersection non vide.</li>
+</ul>
+<p></p>
+<h1>Exercice 3 - Algo de balayage minimal (Bentley et Ottman 1979)</h1>
+<p>Rappel: cet algorithme consiste à faire varier une ligne de balayage en testant uniquement les intersections entre des segments voisins qui intersectent la ligne de balayage. Dans cet exercice, la ligne de balayage varie de gauche à droite. Les segments sont triés de haut en bas et les points évènements de gauche à droite. A chaque point évènement, point extrémité de segment ou point d'intersection, le statut de la ligne de balayage change.</p>
+<p>La classe <code>SweepLine</code> représente la ligne de balayage avec </p>
+<ul>
+  <li>son statut, liste ordonnée des segments qui la croisent et </li>
+  <li>la liste des points &quot;évènements&quot;. La liste des points est triée par rapport à l'abscisse pour un balayage gauche-droite, par rapport à l'ordonnée pour un balayage haut bas.</li>
+  </ul>
+<p>Les deux listes peuvent être gérées par des ArrayList.  </p>
+<p>En utilisant l'algorithme de balayage, compléter la fonction<code> balayage</code> de la classe <code>Sweepline</code> de sorte qu'elle retourne vrai si et seulement si il existe au moins une intersection entre deux segments dans l'ensemble des segments.</p>
+<p></p>
+<h1>Exercice 4 - Algo de balayage complet (Bentley et Ottman 1979)</h1>
+<ol>
+  <li>Modifier le programme pour que la génération des segments génèrent davantage d'intersections.</li>
+  <li>En utilisant l'algorithme de balayage, compléter le programme pour afficher<code> </code>l'ensemble des points d'intersections des segments au fur et à mesure de leur détection par la ligne de balayage.</li>
+</ol>
+<h1>Exercice 5 - Polygone simple</h1>
+<p>Ecrire une fonction qui prend comme argument une liste de n segments et qui teste si ces segments forment un polygone simple ou non. Faire en sorte que la complexité de la fonction soit en O(n log(n)) où n représente le nombre de segments.</p>
+<p>&nbsp;</p>
+</div>
+
+<footer>
+    <p>Mountaz Hascoët - Université de Montpellier 2</p>
+</footer>
+
+</body></html>

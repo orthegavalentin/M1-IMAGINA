@@ -1,0 +1,49 @@
+ ___ ___ 
+|_1_|_2_|
+|_3_|_4_|
+
+Q1. > 16.4444 3516.71 4263.54 4474.51
+
+Q2.
+
+paramètres : imgEntree, imgSortie, coordonnées x et y du point haut-gauche, nbPixels, hauteur, largeur, seuil.
+fonction divRecursive
+    var somme1, somme2, somme3, somme4 = 0.
+    var variance1, variance2, variance3, variance4 = 0.
+
+    pour chaque pixel contenu dans les coordonnées allant de (x,y) à (x+hauteur,y+largeur)
+        si le pixel est dans le premier quart
+            on ajoute sa valeur dans somme1
+        si le pixel est dans le second quart
+            on ajoute sa valeur dans somme2
+        si le pixel est dans le troisème quart
+            on ajoute sa valeur dans somme3
+        si le pixel est dans le quatrième quart
+            on ajoute sa valeur dans somme4
+    pour i de 1 à 4
+        moyenne(i) = somme(i) / (nbPixels/4)
+        dessinerCarré sur le ième quart de couleur moyenne(i)
+
+    pour chaque pixel contenu dans les coordonnées allant de (x,y) à (x+hauteur,y+largeur)
+        si le pixel est dans le premier quart
+            on ajoute (valeur du Pixel - moyenne1)^2  dans variance1
+        si le pixel est dans le second quart
+            on ajoute (valeur du Pixel - moyenne2)^2  dans variance2
+        si le pixel est dans le troisème quart
+            on ajoute (valeur du Pixel - moyenne3)^2  dans variance3
+        si le pixel est dans le quatrième quart
+            on ajoute (valeur du Pixel - moyenne4)^2  dans variance4
+    pour i de 1 à 4
+        variance(i) = variance(i) /4.
+
+    si racine carrée de variance1 > seuil
+        divRecursive(imgEntree, imgSortie,x,y,nbPixels/4,hauteur/2,largeur/2,seuil)
+    si racine carrée de variance2 > seuil
+        divRecursive(imgEntree, imgSortie,x,y+(largeur/2),nbPixels/4,hauteur/2,largeur/2,seuil)
+    si racine carrée de variance3 > seuil
+        divRecursive(imgEntree, imgSortie,x+(hauteur/2),y,nbPixels/4,hauteur/2,largeur/2,seuil)
+    si racine carrée de variance4 > seuil
+        divRecursive(imgEntree, imgSortie,x+(hauteur/2),y+(largeur/2),nbPixels/4,hauteur/2,largeur/2,seuil)
+fin;
+
+Q3.
