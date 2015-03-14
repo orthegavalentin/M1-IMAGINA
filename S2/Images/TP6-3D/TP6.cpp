@@ -5,13 +5,13 @@
 #include <string> 
 using namespace std;
 
-int tailleX = 512;
-int tailleY = 512;
-int tailleZ = 48;
+int tailleX = 301;
+int tailleY = 324;
+int tailleZ = 56;
 unsigned short * buffer;
 
 int getValue(unsigned short * buffer,int x, int y, int z){
-	int num = z*(tailleX*tailleY)+(y*tailleY)+x;
+	int num = z*(tailleX*tailleY)+(y*tailleX)+x;
 	int oct1 = buffer[num]%256;
 	int oct2 = buffer[num]/256;
 	int valPixel = oct1*256+oct2;
@@ -31,8 +31,8 @@ int main(int argc, char const *argv[]){
 	//imgFile = fopen ("./BRAINIX/brainix.256x256x100.0.9375x0.9375x1.5.img","rb");
 	//imgFile = fopen ("./engine/engine.256x256x128.1x1x1.img","rb");
 	//imgFile = fopen ("./FOOT/foot.256x256x256.1.1.1.img","rb");
-	imgFile = fopen ("./MANIX/manixSansIV.512x512x48.0.4570x0.4570x3.0.img","rb");
-	//imgFile = fopen ("./WHATISIT/whatisit.301x324x56.1.1.1.4.img","rb");
+	//imgFile = fopen ("./MANIX/manixSansIV.512x512x48.0.4570x0.4570x3.0.img","rb");
+	imgFile = fopen ("./WHATISIT/whatisit.301x324x56.1.1.1.4.img","rb");
 	if (imgFile!=NULL){
 		fseek (imgFile , 0 , SEEK_END);
 		taille = ftell (imgFile);
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]){
 		int retour = getValue(buffer,200,200,20);
 		cout << retour << endl;
 
-		stockFile = fopen ("manix.0.raw","wb");
+		stockFile = fopen ("whatisit.0.raw","wb");
 		unsigned short *render = new unsigned short[tailleX*tailleZ*tailleY];
 		int cpt=0;
 		for (int k = 0; k < tailleY; k++){
