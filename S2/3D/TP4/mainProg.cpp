@@ -179,37 +179,37 @@ void render_scene(){
 	float rayon=2.0;
 	float hauteur=8.0;
 	//Point*** ptsSurface = calcSommetsCylindre(rayon, hauteur, nbMeri);
-	Point*** ptsSurface = calcSommetsCone(rayon, hauteur, 0.2, nbMeri);
+	// Point*** ptsSurface = calcSommetsCone(rayon, hauteur, 0.2, nbMeri);
 
-	glBegin(GL_QUADS);
-	for (int i = 0; i < nbMeri; i++){
-		for (int j = 0; j < 4; j++){
-			glVertex3f(
-				ptsSurface[i][j]->getX(),
-				ptsSurface[i][j]->getY(),
-				ptsSurface[i][j]->getZ());
-		}
-	}
-	glEnd();
+	// glBegin(GL_QUADS);
+	// for (int i = 0; i < nbMeri; i++){
+	// 	for (int j = 0; j < 4; j++){
+	// 		glVertex3f(
+	// 			ptsSurface[i][j]->getX(),
+	// 			ptsSurface[i][j]->getY(),
+	// 			ptsSurface[i][j]->getZ());
+	// 	}
+	// }
+	// glEnd();
 
-
-	glColor3f(1.0, 0.37, 0);
-	for (int i = nbMeri; i < nbMeri+2; i++){
-		glBegin(GL_POLYGON);
-		for (int j = 0; j < nbMeri; j++){
-			glVertex3f(
-				ptsSurface[i][j]->getX(),
-				ptsSurface[i][j]->getY(),
-				ptsSurface[i][j]->getZ());
-		}
-		glEnd();
-	}
-
-	// rayon = 8.0;
-	// calcSommetsCercle(rayon,nbMeri,nbPara);
 
 	// glColor3f(1.0, 0.37, 0);
-	// glutWireSphere(rayon+0.1,nbMeri,nbPara+1);
+	// for (int i = nbMeri; i < nbMeri+2; i++){
+	// 	glBegin(GL_POLYGON);
+	// 	for (int j = 0; j < nbMeri; j++){
+	// 		glVertex3f(
+	// 			ptsSurface[i][j]->getX(),
+	// 			ptsSurface[i][j]->getY(),
+	// 			ptsSurface[i][j]->getZ());
+	// 	}
+	// 	glEnd();
+	// }
+
+	rayon = 8.0;
+	calcSommetsCercle(rayon,nbMeri,nbPara);
+
+	glColor3f(1.0, 0.37, 0);
+	glutWireSphere(rayon+0.1,nbMeri,nbPara+1);
 }
 
 int main(int argc, char **argv){
