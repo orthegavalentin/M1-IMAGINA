@@ -162,16 +162,18 @@ void render_scene(){
 	glColor3f(1.0, 0.37, 0);
 	glLineWidth(1);
 	glPointSize(4);
-	Point oS(2,2,0);
+	Point oS(0,0,0);
 	Point oC(0,0,0);
 	Vector v(0,0,4);
 	double rayonS = 4;
 	double rayonC = 8;
 	int resolution = 5;
-	displaySphereVolumic(oS,oS,rayonS*2,rayonS*2,resolution);
-	displayCylinderVolumic(oC,oC,v,rayonC*2,rayonC*2,resolution);
+	//displaySphereVolumic(oS,oS,rayonS*2,rayonS*2,resolution);
+	//displayCylinderVolumic(oC,oC,v,rayonC*2,rayonC*2,resolution);
 	//cout << isCircle(oC, oS, 1, rayonS*2) << endl;
 	//cout << isCylindre(oC, oS, v, 1, rayonC*2)<< endl;
+	
+	displayIntersectionSphereCylinder(oS,oS,rayonC*2,rayonS*2,oS,oC,v,rayonC*2,rayonC*2,resolution);
 }
 
 int main(int argc, char **argv){
