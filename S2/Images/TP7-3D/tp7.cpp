@@ -8,6 +8,9 @@ using namespace std;
 int tailleX = 256;
 int tailleY = 256;
 int tailleZ = 128;
+float sizeX=1;
+float sizeY=1;
+float sizeZ=1;
 unsigned short * buffer;
 
 int getValue(unsigned short * buffer,int x, int y, int z){
@@ -27,53 +30,268 @@ int main(int argc, char const *argv[]){
 	short octet1;
 	short octet2;
 	int seuil = 200;
-	//imgFile = fopen ("./BEAUFIX/beaufix.448x576x72.0.6250x0.6250x1.4.img","rb");
-	//imgFile = fopen ("./BRAINIX/brainix.256x256x100.0.9375x0.9375x1.5.img","rb");
 	imgFile = fopen ("./engine/engine.256x256x128.1x1x1.img","rb");
-	//imgFile = fopen ("./FOOT/foot.256x256x256.1.1.1.img","rb");
-	//imgFile = fopen ("./MANIX/manixSansIV.512x512x48.0.4570x0.4570x3.0.img","rb");
-	//imgFile = fopen ("./WHATISIT/whatisit.301x324x56.1.1.1.4.img","rb");
 	if (imgFile!=NULL){
 		fseek (imgFile , 0 , SEEK_END);
 		taille = ftell (imgFile);
 		rewind (imgFile);
 		unsigned short *buffer = new unsigned short[taille];
 		result = fread (buffer,2,taille,imgFile);
-		cout << result << endl;
-		// if (result == taille/2) {
-		// 	for (int i = 0; i < result; i++){
-		// 		octet1 = buffer[i]%256;
-		// 		octet2 = buffer[i]/256;
-		// 		int valeurPixel = octet1*256+octet2;
-		// 	}
-		// }
-		int retour = getValue(buffer,200,200,20);
-		cout << retour << endl;
 
-		stockFile = fopen ("engineSeuil.0.raw","wb");
+		stockFile = fopen ("engine.stl","w");
 
-		unsigned short *render = new unsigned short[(tailleX-2)*(tailleY-2)*(tailleZ-2)];
-		int cpt = 0;
+		int (*render)[8][3] = new int[(tailleX-2)*(tailleY-2)*(tailleZ-2)][8][3];
+		for (int k = 1; k < tailleZ-1; k++){
+			for (int j = 1; j < tailleY-1; j++){
+				for (int i = 1; i < tailleX-1; i++){
+					render[i*j*k][0][0]=(i-0,5)*sizeX;
+					render[i*j*k][0][1]=(j-0,5)*sizeY;
+					render[i*j*k][0][2]=(k-0,5)*sizeZ;
+
+					render[i*j*k][1][0]=(i+0,5)*sizeX;
+					render[i*j*k][1][1]=(j-0,5)*sizeY;
+					render[i*j*k][1][2]=(k-0,5)*sizeZ;
+
+					render[i*j*k][2][0]=(i+0,5)*sizeX;
+					render[i*j*k][2][1]=(j-0,5)*sizeY;
+					render[i*j*k][2][2]=(k+0,5)*sizeZ;
+
+					render[i*j*k][3][0]=(i-0,5)*sizeX;
+					render[i*j*k][3][1]=(j-0,5)*sizeY;
+					render[i*j*k][3][2]=(k+0,5)*sizeZ;
+
+					render[i*j*k][4][0]=(i-0,5)*sizeX;
+					render[i*j*k][4][1]=(j+0,5)*sizeY;
+					render[i*j*k][4][2]=(k-0,5)*sizeZ;
+
+					render[i*j*k][5][0]=(i+0,5)*sizeX;
+					render[i*j*k][5][1]=(j+0,5)*sizeY;
+					render[i*j*k][5][2]=(k-0,5)*sizeZ;
+
+					render[i*j*k][6][0]=(i+0,5)*sizeX;
+					render[i*j*k][6][1]=(j+0,5)*sizeY;
+					render[i*j*k][6][2]=(k+0,5)*sizeZ;
+
+					render[i*j*k][7][0]=(i-0,5)*sizeX;
+					render[i*j*k][7][1]=(j+0,5)*sizeY;
+					render[i*j*k][7][2]=(k+0,5)*sizeZ;
+				}
+			}
+		}
+
+		//debut ecriture stl
+		char ligne[250];
+		sprintf(ligne, "%s \n", "solid engine");
+		cout<<ligne;
+		fwrite(ligne, sizeof(ligne),1,stockFile);
+
 		for (int k = 1; k < tailleZ-1; k++){
 			for (int j = 1; j < tailleY-1; j++){
 				for (int i = 1; i < tailleX-1; i++){
 					int val = getValue(buffer,i,j,k);
 					if(val > seuil){
-						render[cpt] = (256*256)-1;
+						if(getValue(buffer,i+1,j,k) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][1][0],render[i*j*k][1][1],render[i*j*k][1][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][5][0],render[i*j*k][5][1],render[i*j*k][5][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][2][0],render[i*j*k][2][1],render[i*j*k][2][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][5][0],render[i*j*k][5][1],render[i*j*k][5][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][6][0],render[i*j*k][6][1],render[i*j*k][6][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][2][0],render[i*j*k][2][1],render[i*j*k][2][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
+						else if(getValue(buffer,i-1,j,k) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][0][0],render[i*j*k][0][1],render[i*j*k][0][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][4][0],render[i*j*k][4][1],render[i*j*k][4][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][3][0],render[i*j*k][3][1],render[i*j*k][3][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][4][0],render[i*j*k][4][1],render[i*j*k][4][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][7][0],render[i*j*k][7][1],render[i*j*k][7][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][3][0],render[i*j*k][3][1],render[i*j*k][3][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
+						else if(getValue(buffer,i,j-1,k) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][4][0],render[i*j*k][4][1],render[i*j*k][4][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][5][0],render[i*j*k][5][1],render[i*j*k][5][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][7][0],render[i*j*k][7][1],render[i*j*k][7][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][6][0],render[i*j*k][6][1],render[i*j*k][6][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][5][0],render[i*j*k][5][1],render[i*j*k][5][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][7][0],render[i*j*k][7][1],render[i*j*k][7][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
+						else if(getValue(buffer,i,j+1,k) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][0][0],render[i*j*k][0][1],render[i*j*k][0][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][1][0],render[i*j*k][1][1],render[i*j*k][1][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][3][0],render[i*j*k][3][1],render[i*j*k][3][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][2][0],render[i*j*k][2][1],render[i*j*k][2][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][3][0],render[i*j*k][3][1],render[i*j*k][3][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][1][0],render[i*j*k][1][1],render[i*j*k][1][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
+						else if(getValue(buffer,i,j,k-1) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][3][0],render[i*j*k][3][1],render[i*j*k][3][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][2][0],render[i*j*k][2][1],render[i*j*k][2][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][7][0],render[i*j*k][7][1],render[i*j*k][7][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][6][0],render[i*j*k][6][1],render[i*j*k][6][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][7][0],render[i*j*k][7][1],render[i*j*k][7][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][2][0],render[i*j*k][2][1],render[i*j*k][2][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
+						else if(getValue(buffer,i,j,k+1) > seuil){
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][0][0],render[i*j*k][0][1],render[i*j*k][0][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][1][0],render[i*j*k][1][1],render[i*j*k][1][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][4][0],render[i*j*k][4][1],render[i*j*k][4][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+
+							sprintf(ligne, "%s \n", "facet normal");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "outer loop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][5][0],render[i*j*k][5][1],render[i*j*k][5][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][4][0],render[i*j*k][4][1],render[i*j*k][4][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s %d %d %d \n", "vertex ",render[i*j*k][1][0],render[i*j*k][1][1],render[i*j*k][1][2]);
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endloop");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+							sprintf(ligne, "%s \n", "endfacet");
+							fwrite(ligne, sizeof(ligne),1,stockFile);
+						}
 					}
-					else{
-						render[cpt] = 00;
-					}
-					cpt++;
 				}
 			}
 		}
 
-		fwrite(render,2,tailleX*tailleY*tailleZ,stockFile);
+		sprintf(ligne, "%s \n", "endsolid engine");
+		cout<<ligne;
+		fwrite(ligne, sizeof(ligne),1,stockFile);
 
 		fclose(stockFile);
 		fclose(imgFile);
 		free (buffer);
 	}
+	else{
+		cout << "erreur ouverture" << endl;
+	}
+	system("pause");
 	return 0;
 }
