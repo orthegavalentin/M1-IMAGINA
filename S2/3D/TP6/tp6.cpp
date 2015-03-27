@@ -30,9 +30,9 @@ void drawFile(){
 			nbSommets=nbS;
 			nbFaces=nbF;
 			nbAretes=nbA;
+			tabSommets = new double[nbSommets*3];
+			tabFaces = new int[nbFaces*3];
 		}
-		tabSommets = new double[nbSommets*3];
-		tabFaces = new int[nbFaces*3];
 
 		if (nbLignes>2 && nbLignes<=nbSommets+2){
 			std::istringstream iss(ligne);
@@ -55,7 +55,9 @@ void drawFile(){
 	for (int i = 0; i < nbSommets*3; i+=3){
 		glBegin(GL_TRIANGLES);
 
-		glVertex3f(tabSommets[tabFaces[i]],tabSommets[tabFaces[i+1]],tabSommets[tabFaces[i+2]]);
+		glVertex3f(tabSommets[3*tabFaces[i]], tabSommets[3*tabFaces[i]+1] , tabSommets[3*tabFaces[i]+2]);
+		glVertex3f(tabSommets[3*tabFaces[i+1]], tabSommets[3*tabFaces[i+1]+1] , tabSommets[3*tabFaces[i+1]+2]);
+		glVertex3f(tabSommets[3*tabFaces[i+2]], tabSommets[3*tabFaces[i+2]+1] , tabSommets[3*tabFaces[i+2]+2]);
 
 		glEnd();
 	}
