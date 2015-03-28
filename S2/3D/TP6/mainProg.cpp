@@ -159,8 +159,8 @@ void render_scene(){
 
 	drawGrid();
 	
-	//glColor3f(1.0, 0.37, 0);
-	glColor3f(0.3, 0.3, 0.3);
+	glColor3f(1.0, 0.37, 0);
+	//glColor3f(0.3, 0.3, 0.3);
 	glLineWidth(1);
 	glPointSize(4);
 
