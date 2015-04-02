@@ -4,11 +4,12 @@
 #include <GL/glut.h> 
 #include <string>
 #include <sstream>
-#include <fstream> 
+#include <fstream>
+#include <algorithm>
 
 using namespace std;
 
-void drawFile(){
+double drawFile(){
 	std::ifstream fichier("triceratops.off");
 	std::string ligne;
 	int nbLignes=0;
@@ -17,6 +18,9 @@ void drawFile(){
 	int nbAretes=0;
 	double* tabSommets;
 	int* tabFaces;
+	double max = 10;
+	double min = -10;
+	double valRetour = 0;
 
 	while (std::getline(fichier, ligne)){
 		nbLignes++;
@@ -53,6 +57,20 @@ void drawFile(){
 		}
 	}
 
+	for (int i = 0; i < nbSommets*3; i++){
+		tabSommets[i] *= 100;
+	}
+
+	max = *std::max_element(tabSommets,tabSommets+(nbSommets*3));
+	min = *std::min_element(tabSommets,tabSommets+(nbSommets*3));
+
+	if(max > -min){
+		valRetour = max;
+	}
+	else{
+		valRetour = min;
+	}
+
 	for (int i = 0; i < nbFaces*3; i+=3){
 
 		glBegin(GL_LINE_LOOP);
@@ -77,5 +95,7 @@ void drawFile(){
 	// for(int i = 0; i< nbFaces*3;i+=3){
 	// 	cout << tabFaces[i] << " " << tabFaces[i+1] << " " << tabFaces[i+2] << "  ";
 	// }
+
+	return valRetour;
 	
 }

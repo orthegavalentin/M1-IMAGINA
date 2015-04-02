@@ -38,7 +38,7 @@ GLvoid initGL(){
 	glEnable(GL_DEPTH_TEST);		
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glFrustum(-1,1,-1,1,.6,300);	       
+	//glFrustum(-0.1,0.1,-0.1,0.1,0.01,300);	       
 }
 
 void init_scene(){
@@ -54,13 +54,7 @@ GLvoid window_display(){
 	glFlush();
 }
 
-GLvoid window_reshape(GLsizei width, GLsizei height){  
-	glViewport(0, 0, width, height);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
-	glMatrixMode(GL_MODELVIEW);
-}
+
 
 void eyePosition( void ) {
 	eyeX = r * sin(theta*0.0174532) * sin(phi*0.0174532);
@@ -157,7 +151,7 @@ void drawGrid(){
 
 void render_scene(){
 
-	drawGrid();
+	//drawGrid();
 	
 	glColor3f(1.0, 0.37, 0);
 	//glColor3f(0.3, 0.3, 0.3);
@@ -166,6 +160,16 @@ void render_scene(){
 
 	drawFile();
 
+}
+
+GLvoid window_reshape(GLsizei width, GLsizei height){  
+	glViewport(0, 0, width, height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	double a =  drawFile();
+	cout << a << " ";
+	glOrtho(-a, a, -a, a, -a, a);
+	glMatrixMode(GL_MODELVIEW);
 }
 
 int main(int argc, char **argv){
