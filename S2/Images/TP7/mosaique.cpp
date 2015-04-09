@@ -88,13 +88,10 @@ int main(int argc, char* argv[]){
 	lire_image_pgm(cNomImgLue, ImgIn, nH * nW);
 	allocation_tableau(ImgOut, OCTET, nTaille);
 
-	//for (int i = 1; i < 647; ++i){
-		
-		OCTET *ImgMoz;
-		allocation_tableau(ImgMoz, OCTET, 64);
-		lire_image_pgm("1.pgm", ImgMoz, 64);
-	//}
-
+	//TODO:moyenne des images de la banque dans un txt
+	//https://github.com/znoraka/fac/blob/master/traitement_image/TP9/parcours.sh
+	//TODO:	parcours image i+=8
+	//		remplacer zones par images
 
 	divRecursive(ImgIn, ImgOut,0,0, nTaille, nH, nW,7);
 
@@ -102,5 +99,4 @@ int main(int argc, char* argv[]){
 	ecrire_image_pgm(cNomImgEcrite, ImgOut,  nH, nW);
 	free(ImgIn);
 	return 1;
-
 }
