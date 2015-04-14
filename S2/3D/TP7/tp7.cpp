@@ -79,3 +79,35 @@ void drawCylindre(float rayon, float hauteur, int nbMeri){
 		}
 	}
 }
+
+static void output_vertex(int rayon, int nsides, int lat, int lon) {
+	float v[3];
+	double la, lo;
+
+	la = 2.*M_PI*lat/(nsides*2);
+	lo = 2.*M_PI*lon/(nsides);
+	v[0] = cos(lo)*sin(la)*rayon;
+	v[1] = sin(lo)*sin(la)*rayon;
+	v[2] = cos(la)*rayon;
+	glNormal3fv(v);
+	glVertex3fv(v);
+}
+
+void drawSphere(int rayon, int nsides) {
+	int lat, lon;
+	for (lat=0; lat<=nsides; lat++) {
+		glBegin(GL_LINE_STRIP);
+		for (lon=0; lon<=nsides; lon++) {
+			output_vertex(rayon,nsides,lat, lon);
+			output_vertex(rayon,nsides,lat+1, lon);
+		}
+		glEnd();
+	}
+	for (lat=0; lat<=nsides; lat++) {
+		glBegin(GL_LINE_STRIP);
+		for (lon=0; lon<=nsides; lon++) {
+			output_vertex(rayon,nsides,lat, lon);
+		}
+		glEnd();
+	}
+}

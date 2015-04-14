@@ -17,6 +17,11 @@ using namespace std;
 #define BLUE  1
 #define ALPHA 1
 #define KEY_ESC 27
+#define KEY_PLUS 43
+#define KEY_MOINS 45
+
+static int nbMeri = 8;
+static int nbPara = 8;
 
 GLint winWidth=600, winHeight=600;
 GLfloat eyeX=0.0, eyeY=0.0, eyeZ=2.0;
@@ -83,6 +88,16 @@ GLvoid window_key(unsigned char key, int x, int y){
 	switch (key) { 
 		case KEY_ESC:
 		exit(1);
+		break;
+		case KEY_PLUS:
+		nbMeri += 1;
+		nbPara += 1;
+		glutPostRedisplay();
+		break;
+		case KEY_MOINS:
+		nbMeri -= 1;
+		nbPara -= 1;
+		glutPostRedisplay();
 		break;
 
 		default:
@@ -165,11 +180,14 @@ void render_scene(){
 	glLineWidth(1);
 	glPointSize(4);
 
-	float rayon =10;
+	float rayonC =10;
+	float rayonS = 6;
 	float hauteur = 30;
-	int niveauMaillage = 32;
 
-	drawCylindre(rayon,hauteur,niveauMaillage);
+	//cylindre avec des triangles
+	drawCylindre(rayonC,hauteur,nbMeri);
+	//Sphere avec des triangles
+	drawSphere(rayonS,nbMeri);
 
 }
 
