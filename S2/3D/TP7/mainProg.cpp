@@ -180,7 +180,7 @@ void render_scene(){
 	glLineWidth(1);
 	glPointSize(4);
 
-	float rayonC =10;
+	float rayonC = 10;
 	float rayonS = 6;
 	float hauteur = 30;
 

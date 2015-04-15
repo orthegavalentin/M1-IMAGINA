@@ -5,7 +5,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{array,multirow,makecell}
+\usepackage{hhline}
 %\usepackage{fullpage}
+
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 
 \lstset{frame=single}
 
@@ -27,7 +35,7 @@
 \newpage
 
 \section*{Introduction}
-Le but de ce projet consiste à mettre en oeuvre et évaluer une méthode de classification de documents par thème ou opinion. Le programme  permettant la transformation des documents texte en document de format .arff que nous avons développé est en Java. Les documents sont au format texte.
+Le but de ce projet consiste à mettre en œuvre et évaluer une méthode de classification de documents par thème ou opinion. Le programme  permettant la transformation des documents texte en document de format .arff que nous avons développé est en Java. Les documents sont au format texte.
 
 Nous avons donc cherché un sujet pertinent pour cet exercice qui nous a été proposé : celui du sport. Nous avons constitué un corpus de textes contenant 62 textes : 20 concernant le basketball, 20 concernant le tennis et 22 concernant le rugby. Ce choix de sports est pertinent car chaque sport a ses particularités tout en ayant des points communs, comme un ballon pour le rugby et basketball, des points pour le tennis et le basketball, etc ...
 
@@ -105,11 +113,180 @@ L’algorithme KNN figure parmi les plus simples algorithmes d’apprentissage a
 \paragraph{Arbre de décision}
 Cet algorithme utilise une structure d’arbre. L’extrémité de chaque branche représente les différents résultats possibles en fonction des décisions prises à chaque étape. Cet algorithme répartit une population d’individus en groupes homogènes, selon un ensemble de variables discriminantes en fonction d’un objectif fixé et connu.\\Dans weka, l’algorithme implémentant cette méthode est nommé j48.
 
+\subsection{Pré-traitement weka}
+Dans le but de “nettoyer” les textes nous avons utilisé une liste de stopwords afin de supprimer les mots français qui sont très présents.
+
+En utilisant le filtre \textit{StringToWordVector}, nous utilisons la méthode de pondération TF-IDF (Term Frequency - Inverse Document Frequency) afin de donner un poids à chaque mot en fonction de sa fréquence d'apparition dans le texte et dans le corpus. Si un mot est présent de nombreuses fois dans un texte, son TF sera élevé, s’il est présent de nombreuses fois dans le corpus entier, son IDF sera plus faible. Ainsi, on peut évaluer l'importance d'un terme contenu dans un texte, relativement au corpus entier.
+
 \newpage
-\section{Mise en œuvre des algorithmes de classification}
-\subsection{Textes brut}
+\section{Résultats obtenus avec la prise en compte d'informations linguistiques}
+\subsection{Textes bruts}
+\subsubsection{Résultats}
+Pour analyser les textes, nous avons utilisé le filtre StringToWordVector, pour convertir le texte des articles en une liste d’attributs qui représente l'occurrence de chaque mot contenu dans les textes.
+\paragraph{Bayes} Instances correctement classées : \textbf{100\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+20 & 0 & 0 & a = basketball \\ \hline 
+0 & 20 & 0 & b = tennis \\ \hline 
+0 & 0 & 22 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+\paragraph{SMO} Instances correctement classées : \textbf{98.3871\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 0 & 1 & a = basketball \\ \hline 
+0 & 20 & 0 & b = tennis \\ \hline 
+0 & 0 & 22 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+\paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{61.2903\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 1 & 0 & a = basketball \\ \hline 
+2 & 18 & 0 & b = tennis \\ \hline 
+20 & 1 & 1 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{64.5161\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+16 & 4 & 0 & a = basketball \\ \hline 
+0 & 20 & 0 & b = tennis \\ \hline 
+0 & 18 & 4 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{J48} Instances correctement classées : \textbf{90.3226\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 0 & 1 & a = basketball \\ \hline 
+0 & 16 & 4 & b = tennis \\ \hline 
+0 & 1 & 21 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+
 \subsection{Textes lemmatisés}
+\subsubsection{Résultats}
+\paragraph{Bayes} Instances correctement classées : \textbf{100\%}
+\paragraph{SMO} Instances correctement classées : \textbf{98.3871\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 0 & 1 & a = basketball \\ \hline 
+0 & 20 & 0 & b = tennis \\ \hline 
+0 & 0 & 22 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{59.6774\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 1 & 0 & a = basketball \\ \hline 
+2 & 18 & 0 & b = tennis \\ \hline 
+20 & 2 & 0 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{59.6774\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+15 & 5 & 0 & a = basketball \\ \hline 
+0 & 20 & 0 & b = tennis \\ \hline 
+0 & 20 & 2 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{J48} Instances correctement classées : \textbf{91.9355\%}
+
+\begin{center}
+\begin{tabular}{|C{1cm}|C{1cm}|C{1cm}||L{3cm}|}
+\hline 
+a & b & c & classé dans \\ \hhline {|=|=|=||=|} 
+19 & 0 & 1 & a = basketball \\ \hline 
+0 & 16 & 4 & b = tennis \\ \hline 
+0 & 0 & 22 & c = rugby \\ \hline
+\end{tabular}
+\end{center}
+
+
 \subsection{Textes lemmatisés avec analyse morpho-syntaxique (TreeTagger)}
+Afin de savoir quelle catégorie de mot est la plus pertinente, nous avons effectué des tests avec Weka en ne gardant que certaines catégories de mots (cf. plus bas).
+
+\begin{center}
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+\hline 
+a & VER:pres & avoir \\ \hline
+reconnu & VER:pper & reconnaître  \\ \hline
+l' & DET:ART & le  \\ \hline
+élève & NOM & élève  \\ \hline
+de & PRP & de  \\ \hline
+Michael & NAM & Michael  \\ \hline
+Chang & NAM & Chang  \\ \hline
+au & PRP:det & au  \\ \hline
+micro & NOM & micro \\ \hline
+du & PRP:det & du  \\ \hline
+stade & NOM & stade  \\ \hline
+. & SENT & .  \\ \hline
+Je & PRO:PER & je  \\ \hline
+le & PRO:PER & le  \\ \hline
+félicite & VER:pres & féliciter  \\ \hline
+. & SENT & .  \\ \hline
+\end{tabular}\\
+\textit{Extrait du résultat du Tree-Tagger sur le corpus}
+\end{center}
+
+\subsubsection{Résultats en gardant les noms et verbes}
+\paragraph{Bayes} Instances correctement classées : \textbf{100\%}
+\paragraph{SMO} Instances correctement classées : \textbf{98.3871\%}
+\paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{61.2903\%}
+\paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{56.4516\%}
+\paragraph{J48} Instances correctement classées : \textbf{91.9355\%}
+
+\subsubsection{Résultats en gardant les noms seulement}
+\paragraph{Bayes} Instances correctement classées : \textbf{100\%}
+\paragraph{SMO} Instances correctement classées : \textbf{96.7742\%}
+\paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{54.8387\%}
+\paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{53.2258\%}
+\paragraph{J48} Instances correctement classées : \textbf{88.7097\%}
+
+\subsubsection{Résultats en gardant les adjectifs seulement}
+\paragraph{Bayes} Instances correctement classées : \textbf{87.0968\%}
+\paragraph{SMO} Instances correctement classées : \textbf{75.8065\%}
+\paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{56.4516\%}
+\paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{45.1613\%}
+\paragraph{J48} Instances correctement classées : \textbf{56.4516\%}
+
+\newpage
+\section{Analyse approfondie des résultats}
+\subsection{Comparaison des algorithmes de classification}
+
+\subsection{Comparaison des résultats obtenus sur le texte brut, le texte lemmatisé et le texte lemmatisé en ne gardant que les noms et les verbes en se basant sur la Précision, le Rappel et la F-Mesure}
+
 
 
 \newpage
