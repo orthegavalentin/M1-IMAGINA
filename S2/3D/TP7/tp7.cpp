@@ -111,3 +111,8 @@ void drawSphere(int rayon, int nsides) {
 		glEnd();
 	}
 }
+
+void gauss(){
+	//dessiner les lignes de (0,0,0) à (x,y,z) de chaque point, plus une sphère.
+	
+}

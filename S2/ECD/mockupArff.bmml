@@ -1,0 +1,126 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1511" measuredH="691" mockupW="1485" mockupH="659">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Tree" x="1211" y="32" w="300" h="327" measuredW="300" measuredH="327" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <selectedIndex>-1</selectedIndex>
+        <text>F%20basketball%0A%20-%20basketball1.txt%0A%20-%20basketball2.txt%0A%20-%20basketball3.txt%0A%20-%20...%0AF%20tennis%0A%20-%20tennis1.txt%0A%20-%20tennis2.txt%0A%20-%20tennis3.txt%0A%20-%20...%0AF%20rugby%0A%20-%20rugby1.txt%0A%20-%20rugby2.txt%0A%20-%20rugby3.txt%0A%20-%20...</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="26" y="32" w="981" h="654" measuredW="450" measuredH="400" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>L%27Equipe.fr%0Ahttp%3A//www.lequipe.fr/</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::TextArea" x="317" y="150" w="671" h="118" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Apr%E8s%20avoir%20hibern%E9%20durant%20l%27hiver%2C%20les%20San%20Antonio%20Spurs%20sont%20mont%E9s%20en%20puissance%20jusqu%27%E0%20d%E9crocher%20un%20record%20%3A%20celui%20du%20meilleur%20ratio%20victoires-d%E9faites%20de%20l%27histoire%20de%20la%20saison%20r%E9guli%E8re%20NBA%2C%20devant%20les%20Los%20Angeles%20Lakers.%0AM%EAme%20si%20leur%20jeu%20tout%20en%20contr%F4le%20et%20en%20collectif%20est%20tr%E8s%20europ%E9anis%E9%2C%20c%27est%20bien%20sur%20le%20championnat%20nord-am%E9rician%20que%20les%20San%20Antonio%20Spurs%20ont%20pos%E9%20la%20main.%20Les%20Texans%20sont%20devenus%20la%20nouvelle%20r%E9f%E9rence%20en%20peu%20de%20temps%20...</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Title" x="317" y="119" w="-1" h="-1" measuredW="455" measuredH="31" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>28</size>
+        <text>Les%20Spurs%20plus%20forts%20que%20les%20Lakers</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Image" x="41" y="119" w="269" h="136" measuredW="665" measuredH="335" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <rotation>0</rotation>
+        <src>http%3A//medias.lequipe.fr/img-photo-jpg/tony-parker/1500000000552702/0%3A278%2C2048%3A1311-665-335-70/68d98.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="41" y="283" w="269" h="149" measuredW="665" measuredH="335" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>http%3A//medias.lequipe.fr/img-photo-jpg/fran-s-trinh-duc/1500000000550914/0%3A184%2C2048%3A1217-665-335-70/db53b.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Title" x="317" y="283" w="-1" h="-1" measuredW="677" measuredH="31" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>28</size>
+        <text>Fran%E7ois%20Trinh-Duc%20veut%20%ABmourir%20les%20armes%20%E0%20la%20main%BB</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextArea" x="325" y="324" w="663" h="122" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Fran%E7ois%20Trinh-Duc%20%3A%20%ABPersonnellement%2C%20je%20me%20suis%20senti%20bien%20dans%20le%20match%20m%EAme%20s%u2019il%20y%20avait%20beaucoup%20plus%20de%20rythme%20que%20contre%20le%20LOU.%20Je%20n%u2019ai%20pas%20but%E9%20car%20c%u2019est%20difficile%20de%20demander%20%E0%20Ben%20Lucas%20de%20laisser%20sa%20place.%20Il%20est%20plut%F4t%20performant%20dans%20l%u2019exercice.%20Et%20puis%2C%20je%20prends%20les%20choses%20les%20unes%20apr%E8s%20les%20autres%20m%EAme%20si%20je%20m%u2019entra%EEne%20%E9norm%E9ment%20pour%20%E7a%20aussi.%20Pour%20le%20match%2C%20je%20suis%20fier%20que%20l%27on%20n%u2019ait%20pas%20l%E2ch%E9%20alors%20qu%u2019on%20perdait%20de%2014%20points.%20On%20a%20%E9t%E9%20cherch%E9%20des%20choses%20tr%E8s%20profond%2C%20des%20trucs%20qu%u2019on%20n%u2019avait%20plus%20vu%20chez%20nous%20depuis%20longtemps.%20Mais%20au%20final%2C%20m%EAme%20si%20on%20a%20fait%20match%20nul%2C%20par%20rapport%20%E0%20la%20qualification%2C%20ce%20sera%20compliqu%E9.%20Pourtant%2C%20on%20veut%20mourir%20les%20armes%20%E0%20la%20main.%BB</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SubTitle" x="317" y="472" w="-1" h="-1" measuredW="408" measuredH="31" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>28</size>
+        <text>Lyon%20met%20la%20pression%20sur%20le%20PSG</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::TextArea" x="325" y="503" w="657" h="140" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <text>Lyon%20restait%20sur%20treize%20matches%20cons%E9cutifs%20avec%20au%20moins%20un%20but%20marqu%E9%20sur%20sa%20pelouse.%20Mercredi%2C%20les%20spectateurs%20de%20Gerland%20ont%20craint%20que%20cette%20s%E9rie%20ne%20prenne%20fin.%20Si%20l%27OL%20a%20nettement%20domin%E9%20sa%20rencontre%20en%20retard%20contre%20Bastia%20%282-0%29%2C%20il%20a%20patient%E9%20jusqu%27au%20dernier%20quart%20d%27heure%20pour%20faire%20la%20diff%E9rence.%20Mohamed%20Yattara%2C%20tout%20juste%20entr%E9%20en%20jeu%2C%20a%20d%27abord%20repris%20un%20centre%20pr%E9cis%20du%20revenant%20Cl%E9ment%20Grenier%20%2877e%29.%20Au%20terme%20d%27une%20chevauch%E9e%2C%20le%20v%E9loce%20Clinton%20Njie%20a%20ensuite%20servi%20Alexandre%20Lacazette%20%2885e%29%2C%20efficace%20devant%20Alphonse%20Areola.%20Le%20meilleur%20buteur%20de%20la%20L1%20est%20devenu%20le%20premier%20joueur%20lyonnais%20depuis%20Andr%E9%20Guy%20%281968/1969%29%20%E0%20marquer%2025%20buts%20ou%20plus%20lors%20d%27une%20seule%20saison.</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Image" x="41" y="472" w="269" h="140" measuredW="665" measuredH="335" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <filter>true</filter>
+        <src>http%3A//medias.lequipe.fr/img-photo-jpg/lyon-bastia/1500000000553047/0%3A199%2C1928%3A1170-665-335-70/cf4cb.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::FieldSet" x="1056" y="425" w="455" h="266" measuredW="200" measuredH="170" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <text>CORPUS.ARFF</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextArea" x="1070" y="457" w="427" h="225" measuredW="200" measuredH="140" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <size>16</size>
+        <state>up</state>
+        <text>@relation%20sport%0A%20%0A@attribute%20document_content%20string%0A@attribute%20document_class%20%7Bbasketball%2Ctennis%2Crugby%7D%0A%20%0A@data%0A%22Les%20Spurs%20plus%20forts%20que%20les%20Lakers%20Apr%E8s%20avoir%20hibern%E9%20durant%20l%27hiver%2C%20les%20San%20Antonio%20Spurs%20sont%20mont%E9s%20en%20puissance%20jusqu%27%E0%20d%E9crocher%20un%20record%20%3A%20celui%20du%20meilleur%20ratio%20victoires-d%E9faites%20de%20l%27histoire%20de%20la%20saison%20r%E9guli%E8re%20NBA%20...%22%2C%20basketball</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Arrow" x="947" y="145" w="236" h="110" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Arrow" x="1298" y="324" w="153" h="148" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <curvature>-1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Label" x="1037" y="135" w="-1" h="-1" measuredW="19" measuredH="30" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>28</size>
+        <text>1</text>
+        <textOrientation>slanted</textOrientation>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Label" x="1374" y="382" w="-1" h="-1" measuredW="25" measuredH="32" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>28</size>
+        <text>2</text>
+        <textOrientation>slanted</textOrientation>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

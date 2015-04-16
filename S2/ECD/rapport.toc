@@ -9,7 +9,7 @@
 \contentsline {paragraph}{Machines \IeC {\`a} support de vecteurs (SVM)}{6}
 \contentsline {paragraph}{K plus proche voisin (KNN)}{6}
 \contentsline {paragraph}{Arbre de d\IeC {\'e}cision}{6}
-\contentsline {subsection}{\numberline {3.2}Pr\IeC {\'e}-traitement weka}{6}
+\contentsline {subsection}{\numberline {3.2}Pr\IeC {\'e}-traitement weka}{7}
 \contentsline {section}{\numberline {4}R\IeC {\'e}sultats obtenus avec la prise en compte d'informations linguistiques}{8}
 \contentsline {subsection}{\numberline {4.1}Textes bruts}{8}
 \contentsline {subsubsection}{\numberline {4.1.1}R\IeC {\'e}sultats}{8}
@@ -30,20 +30,23 @@
 \contentsline {paragraph}{Bayes}{10}
 \contentsline {paragraph}{SMO}{10}
 \contentsline {paragraph}{IBK, 1 voisin}{10}
-\contentsline {paragraph}{IBK, 4 voisins}{10}
-\contentsline {paragraph}{J48}{10}
-\contentsline {subsubsection}{\numberline {4.3.2}R\IeC {\'e}sultats en gardant les noms seulement}{10}
-\contentsline {paragraph}{Bayes}{10}
-\contentsline {paragraph}{SMO}{10}
-\contentsline {paragraph}{IBK, 1 voisin}{11}
 \contentsline {paragraph}{IBK, 4 voisins}{11}
 \contentsline {paragraph}{J48}{11}
-\contentsline {subsubsection}{\numberline {4.3.3}R\IeC {\'e}sultats en gardant les adjectifs seulement}{11}
+\contentsline {subsubsection}{\numberline {4.3.2}R\IeC {\'e}sultats en gardant les noms seulement}{11}
 \contentsline {paragraph}{Bayes}{11}
 \contentsline {paragraph}{SMO}{11}
 \contentsline {paragraph}{IBK, 1 voisin}{11}
 \contentsline {paragraph}{IBK, 4 voisins}{11}
-\contentsline {paragraph}{J48}{11}
-\contentsline {section}{\numberline {5}Analyse approfondie des r\IeC {\'e}sultats}{12}
-\contentsline {subsection}{\numberline {5.1}Comparaison des algorithmes de classification}{12}
-\contentsline {subsection}{\numberline {5.2}Comparaison des r\IeC {\'e}sultats obtenus sur le texte brut, le texte lemmatis\IeC {\'e} et le texte lemmatis\IeC {\'e} en ne gardant que les noms et les verbes en se basant sur la Pr\IeC {\'e}cision, le Rappel et la F-Mesure}{12}
+\contentsline {paragraph}{J48}{12}
+\contentsline {subsubsection}{\numberline {4.3.3}R\IeC {\'e}sultats en gardant les adjectifs seulement}{12}
+\contentsline {paragraph}{Bayes}{12}
+\contentsline {paragraph}{SMO}{12}
+\contentsline {paragraph}{IBK, 1 voisin}{12}
+\contentsline {paragraph}{IBK, 4 voisins}{12}
+\contentsline {paragraph}{J48}{13}
+\contentsline {section}{\numberline {5}Analyse approfondie des r\IeC {\'e}sultats}{14}
+\contentsline {subsection}{\numberline {5.1}Comparaison des algorithmes de classification}{14}
+\contentsline {subsection}{\numberline {5.2}Comparaison des r\IeC {\'e}sultats obtenus sur le texte brut, le texte lemmatis\IeC {\'e} et le texte lemmatis\IeC {\'e} en ne gardant que les noms et les verbes en se basant sur la Pr\IeC {\'e}cision, le Rappel et la F-Mesure}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
