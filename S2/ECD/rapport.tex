@@ -34,7 +34,7 @@
 
 \newpage
 
-\section*{Introduction}
+\section{Introduction}
 Le but de ce projet consiste à mettre en œuvre et évaluer une méthode de classification de documents par thème ou opinion. Le programme  permettant la transformation des documents texte en document de format .arff que nous avons développé est en Java. Les documents sont au format texte.
 
 Nous avons donc cherché un sujet pertinent pour cet exercice qui nous a été proposé : celui du sport. Nous avons constitué un corpus de textes contenant 62 textes : 20 concernant le basketball, 20 concernant le tennis et 22 concernant le rugby. Ce choix de sports est pertinent car chaque sport a ses particularités tout en ayant des points communs, comme un ballon pour le rugby et basketball, des points pour le tennis et le basketball, etc ...
@@ -44,7 +44,6 @@ Nous avons donc cherché un sujet pertinent pour cet exercice qui nous a été p
 \section{Constitution du corpus}
 Nous avons récupéré la totalité des textes de nos corpus sur le site l’Équipe.fr, en ne récupérant que les articles parlant des résultats et des résumés des rencontres. Dans chaque article, nous avons récupéré le contenu que nous avons collé dans un fichier texte. Puis nous avons supprimé les informations parasites, telles les légendes des images et les textes pour partager sur les réseaux sociaux. Nous avons ainsi récupéré ainsi 20 textes de résultats de tennis, 20 de basketball et 22 de rugby, ce qui représente 62 fichiers textes nommés tennis1, tennis2, tennis3...
 
-\newpage
 \section{Transformation des données en format .arff}
 \subsection{Présentation du format .arff}
 Un fichier .arff (Attribute-Relation File Format) est un fichier texte qui représente une liste d’instances qui partagent un ensemble d’attributs. Il est composé de deux parties principales : une en-tête et un corps contenant les données.
@@ -89,8 +88,8 @@ rainy,71,91,TRUE,no
 \subsection{Conversion des fichiers texte en fichier .arff unique}
 Afin de pouvoir travailler sur le corpus sportif que nous avons créé, il nous faut créer un programme permettant de fusionner et mettre en forme les textes pour respecter la norme d’un fichier.arff.
 
-Pour cela nous avons codé un petit analyseur en Java qui créé l’en-tête du fichier .arff, puis qui récupère le contenu de chaque fichier texte et le met sur une ligne, suivie de sa classe.\\Le code du programme est donné en annexe.\\\\
-\vspace{2cm}
+Pour cela nous avons codé un petit analyseur en Java qui créé l’en-tête du fichier .arff, puis qui récupère le contenu de chaque fichier texte et le met sur une ligne, suivie de sa classe.\\Le code du programme est donné en annexe.
+\vspace{1.5cm}
 
 \noindent
 \makebox[\textwidth]{\includegraphics[scale=0.35]{mockupArff.png}}
@@ -153,7 +152,6 @@ En utilisant le filtre \textit{StringToWordVector}, nous utilisons la méthode d
 \newpage
 \section{Résultats obtenus avec la prise en compte d'informations linguistiques}
 \subsection{Textes bruts}
-\subsubsection{Résultats}
 Pour analyser les textes, nous avons utilisé le filtre StringToWordVector, pour convertir le texte des articles en une liste d’attributs qui représente l'occurrence de chaque mot contenu dans les textes.
 \paragraph{Bayes} Instances correctement classées : \textbf{100\%}
 
@@ -166,6 +164,9 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 0 & 0 & 22 & c = rugby \\ \hline
 \end{tabular}
 \end{center}
+
+Comme on peux le voir, tous les textes sont bien classifiés. Étant donné que les mots ne sont pas lemmatisés, l'algorithme de Bayes a donc tous les mots du texte pour faire la classification, ce qui le rend plus efficace.
+
 \paragraph{SMO} Instances correctement classées : \textbf{98.3871\%}
 
 \begin{center}
@@ -177,6 +178,9 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 0 & 0 & 22 & c = rugby \\ \hline
 \end{tabular}
 \end{center}
+
+On peux voir ici que quasiment touts les textes sont bien classifié. Un seul résultat de basket ne l'est pas.
+
 \paragraph{IBK, 1 voisin} Instances correctement classées : \textbf{61.2903\%}
 
 \begin{center}
@@ -188,6 +192,8 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 20 & 1 & 1 & c = rugby \\ \hline
 \end{tabular}
 \end{center}
+
+Cet algorithme est moins précis que les autres.  On a une précision qui est moins fiable pour les 3 types de texte.
 
 \paragraph{IBK, 4 voisins} Instances correctement classées : \textbf{64.5161\%}
 
@@ -201,6 +207,8 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 \end{tabular}
 \end{center}
 
+Quand on augmente le nombre de voisin, ici à 4, la précision augmente légèrement. Cependant la précision est toujours moindre par rapport aux algorithmes précédents.
+
 \paragraph{J48} Instances correctement classées : \textbf{90.3226\%}
 
 \begin{center}
@@ -213,9 +221,14 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 \end{tabular}
 \end{center}
 
+\begin{center}
+\includegraphics[scale=0.8]{j48_brut.png}
+\end{center}
+
+La encore nous avons des résultat plutôt bon. On peux voir que le basket est caractérisé pas le mot "rebond". Le tennis, lui, par les mots "set" et "demi-finale". Le rugby contient donc des articles ne contenant aucun de ces trois mots. Par exemple, une erreur de détection peut être due au fait qu'un article de rugby contient le mot demi-finale, il est ainsi classé dans la catégorie tennis.
+
 
 \subsection{Textes lemmatisés}
-\subsubsection{Résultats}
 \paragraph{Bayes} Instances correctement classées : \textbf{100\%}
 \paragraph{SMO} Instances correctement classées : \textbf{98.3871\%}
 
@@ -267,7 +280,7 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 
 
 \subsection{Textes lemmatisés avec analyse morpho-syntaxique (TreeTagger)}
-Afin de savoir quelle catégorie de mot est la plus pertinente, nous avons effectué des tests avec Weka en ne gardant que certaines catégories de mots (cf. plus bas).
+Afin de savoir quelle catégorie de mot est la plus pertinente, nous avons effectué des tests avec Weka en ne gardant que certaines catégories de mots.
 
 \begin{center}
 \begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
@@ -342,6 +355,10 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 \end{tabular}
 \end{center}
 
+\begin{center}
+\includegraphics[scale=0.8]{j48_nomVerbes.png}
+\end{center}
+
 \subsubsection{Résultats en gardant les noms seulement}
 \paragraph{Bayes} Instances correctement classées : \textbf{100\%}
 \paragraph{SMO} Instances correctement classées : \textbf{96.7742\%}
@@ -390,6 +407,10 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 0 & 15 & 5 & b = tennis \\ \hline 
 1 & 0 & 21 & c = rugby \\ \hline
 \end{tabular}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.8]{j48_noms.png}
 \end{center}
 
 \subsubsection{Résultats en gardant les adjectifs seulement}
@@ -456,6 +477,9 @@ a & b & c & classé dans \\ \hhline {|=|=|=||=|}
 
 \newpage
 \section{Analyse approfondie des résultats}
+
+Pour les textes lemmatisés avec analyse morpho-syntaxique, il nous est apparu que garder les noms ainsi que les verbes était le plus pertinent (garder seulement les adjectifs donnant un résultat médiocre pour tous les algorithmes).
+
 \subsection{Comparaison des algorithmes de classification}
 
 \begin{center}
@@ -500,6 +524,15 @@ Globalement, la précision est moins bonne mais le rappel est légèrement meill
 \begin{center}
 \includegraphics[scale=0.4]{instClassees.png}
 \end{center}
+
+\newpage
+\section{Conclusion}
+Afin d'extraire efficacement des données de notre corpus, pour donner des moyens d'apprentissage à la machine, nous avons appliqué plusieurs étapes. Dans un premier temps, nous avons choisis de ne traiter que des articles parlant des résultats, afin que les mots présents à l'intérieur soient propre à chaque sport. Puis, nous avons appliqué une phase de "nettoyage" avec l'aide de weka. Enfin, nous avons appliqué des algorithmes de classification sur ces textes nettoyés. En fonction du nettoyage utilisé, nous avons obtenus des résultats différents.
+
+Malgré l'utilisation d'une liste de \textit{stopwords}, et de la méthode de pondération TF-IDF, certaines erreurs ont subsisté dans les résusltats obtenus. Par exemple, les mots vides comme les articles ou bien les déterminants sont présents dans toutes les classes du texte. Ces mots vides influencent grandement les résultats des algorithmes autres que Bayes, et empêchent donc des résultats corrects.
+
+Plus la phase de nettoyage est rigoureuse, comme la lemmatisation suivie de l'analyse morpho-syntaxique, plus les informations contenues dans les textes à analyser sont réduites. Ainsi, pour augmenter le précision dans la classification, il faudrait augmenter le nombre de textes dans chaque catégorie, afin d'avoir un apprentissage optimal de la machine, à partir de mots-clés pertinents qui sont récurrents et propres à certains sports. La phase de prétraitement des données est donc primordiale et doit être longuement réfléchie.
+
 
 
 \newpage
@@ -583,9 +616,5 @@ public class Main {
   } 
 }
 \end{lstlisting}
-
-%\begin{center}
-%\includegraphics[scale=0.7]{fruit1_photo.png}
-%\end{center}
 
 \end{document}
