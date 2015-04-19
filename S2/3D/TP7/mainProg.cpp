@@ -188,6 +188,8 @@ void render_scene(){
 	drawCylindre(rayonC,hauteur,nbMeri);
 	//Sphere avec des triangles
 	drawSphere(rayonS,nbMeri);
+	//fonction gaussienne
+	gauss();
 
 }
 
