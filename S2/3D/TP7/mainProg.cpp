@@ -185,9 +185,9 @@ void render_scene(){
 	float hauteur = 30;
 
 	//cylindre avec des triangles
-	drawCylindre(rayonC,hauteur,nbMeri);
+	//drawCylindre(rayonC,hauteur,nbMeri);
 	//Sphere avec des triangles
-	drawSphere(rayonS,nbMeri);
+	//drawSphere(rayonS,nbMeri);
 	//fonction gaussienne
 	gauss();
 
