@@ -23,10 +23,12 @@
 - [Simplification / subdivision de maillage](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP9/Simplification_Subdivision.compressed.pdf)
 
 [TPs](https://github.com/Ooya/M1-IMAGINA/tree/master/S2/3D)
+
 [Annale 2014](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/Partiel_Modelisation_3D_2013-2014.pdf)
 
 ##Algo Géo
 [Page Web](https://www.lirmm.fr/~bessy/AlgoGeo/accueil.html)
+
 [Algorithmes](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Algo%20Geometrique/Algorithmes.pdf)
 
 ##Imagerie
@@ -34,11 +36,14 @@
 - [Page Web](https://www.lirmm.fr/~wpuech/enseignement/master_informatique/Analyse_Traitement_Image/)
 - [Cours](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/CoursPuech.pdf)
 - [Annale 2014](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/13_14_exam_images_M1_IMAGINA_partie_Puech.pdf)
+
 ###Partie Subsol
 - [Page Web](http://www.lirmm.fr/~subsol/GMIN215/)
 - Cours : [Partie 1](http://www.lirmm.fr/~subsol/GMIN215/GMIN215.1.pdf), [Partie 2](http://www.lirmm.fr/~subsol/GMIN215/GMIN215.2.pdf), [Partie 3](http://www.lirmm.fr/~subsol/GMIN215/GMIN215.3.pdf)
 - [Annale 2014](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/13_14_exam_images_M1_IMAGINA_partie_Subsol.pdf)
+
 ###Partie Strauss
 - [Annale 2014](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/13_14_exam_images_M1_IMAGINA_partie_Strauss.pdf)
+
 ###Partie Joly
 - [Cours](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/CoursJoly.pdf)
