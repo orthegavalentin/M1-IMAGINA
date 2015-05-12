@@ -27,11 +27,16 @@
 [Annale 2014](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/Partiel_Modelisation_3D_2013-2014.pdf)
 
 ##Algo Géo
+[Dépôt](https://github.com/Ooya/M1-IMAGINA/tree/master/S2/Algo%20Geometrique)
+
 [Page Web](https://www.lirmm.fr/~bessy/AlgoGeo/accueil.html)
 
 [Algorithmes](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Algo%20Geometrique/Algorithmes.pdf)
 
 ##Imagerie
+
+[Dépôt](https://github.com/Ooya/M1-IMAGINA/tree/master/S2/Images)
+
 ###Partie Puech
 - [Page Web](https://www.lirmm.fr/~wpuech/enseignement/master_informatique/Analyse_Traitement_Image/)
 - [Cours](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/Images/CoursPuech.pdf)
