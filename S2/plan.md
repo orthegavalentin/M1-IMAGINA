@@ -16,7 +16,7 @@
 - [Courbes paramétriques](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP2-3/CourbesParametriques.pdf)
 - [Surfaces paramétriques](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP2-3/SurfacesParametriques.pdf)
 - [Représentation surfacique](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP4/RepresentationSurfacique3D.pdf)
-- [Représentation volumique](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP5/TDTP_Repr%C3%A9sentationVolumique.pdf)
+- [Représentation volumique](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP5/ModelesVolumiques.pdf)
 - [Maillages 3D](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP6/Maillages3D.pdf)
 - [Maillage avancé](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP7/MaillageAvance.pdf)
 - [Segmentation](https://github.com/Ooya/M1-IMAGINA/blob/master/S2/3D/TP8/Segmentation.compressed.pdf)
